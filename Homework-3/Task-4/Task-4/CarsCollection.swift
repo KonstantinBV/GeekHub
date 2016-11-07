@@ -10,8 +10,8 @@ import Foundation
 
 public class CarsCollection {
     
-    var carOwner: CarOwner!
-    var cars: [String:  Car] = [:]
+    private var carOwner: CarOwner!
+    private var cars: [String:  Car] = [:]
     
     init(carOwner: CarOwner) {
         self.carOwner = carOwner
@@ -37,12 +37,13 @@ public class CarsCollection {
     
     public func addCar(car: Car, reportProgress: Bool = true) {
         if let existedCar: Car = cars[car.dnz] {
-            print("Car \(existedCar.getInfo()) already in garage")
+            print("Ошибка!")
+            print("Авто: \(existedCar.getInfo()) уже находится в коллекции.")
         } else {
             car.carOwner = carOwner
             cars[car.dnz] = car
             if reportProgress {
-               print("Car \(car.getInfo()) added to the garage")
+               print("Авто: \(car.getInfo()) успешно добавлено в коллекцию!")
             }
         }
     }
@@ -50,9 +51,14 @@ public class CarsCollection {
     public func removeCar(car: Car) {
         if let existedCar: Car = cars[car.dnz] {
             cars.removeValueForKey(existedCar.dnz)
-            print("Car \(car.getInfo()) removed...")
+            print("Авто: \(car.getInfo()) удалено из коллекции!")
         } else {
-            print("Car \(car.getInfo()) not found!")
+            print("Ошибка удаления.")
+            print("Авто: \(car.getInfo()) не состоит в коллекции!")
         }
+    }
+    
+    public func getCars() -> [Car] {
+        return [Car](cars.values)
     }
 }

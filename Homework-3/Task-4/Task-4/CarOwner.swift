@@ -44,11 +44,11 @@ public class CarOwner: Equatable {
     }
     
     public func getCars() -> [Car] {
-        return [Car] (carsCollection!.cars.values)
+        return carsCollection!.getCars()
     }
     
     public func getInfo() -> String {
-        return isEmpty ? "No car owner info" : "\(name) \(surname), address: \(address)"
+        return isEmpty ? "Информация о владельце автомобиля отсутствует!" : "\(name) \(surname), адрес: \(address)"
     }
 }
 

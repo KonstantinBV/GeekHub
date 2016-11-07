@@ -10,7 +10,7 @@ import Foundation
 
 public class Catalog {
     
-    var carsOwners: [CarOwner]
+    private var carsOwners: [CarOwner]
     
     init() {
         carsOwners = []
@@ -35,7 +35,11 @@ public class Catalog {
         }
         let sortedCars = cars.sort { $0.dnz < $1.dnz }
         for car in sortedCars {
+            if let carOwner: CarOwner = car.carOwner {
+                print(carOwner.getInfo())
+            }
             print(car.getInfo())
+            print("")
         }
     }
     
