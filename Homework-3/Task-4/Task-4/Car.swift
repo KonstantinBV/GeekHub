@@ -10,10 +10,17 @@ import Foundation
 
 public class Car {
     
-    public var dnz: String = ""
     public var mark: String = ""
     public var model: String = ""
+    public var dnz: String = ""
     
     public var carOwner: CarOwner?
+    
+    init (_ inputMark: String, _ inputModel: String, _ inputDnz: String, _ inputCarOwner: CarOwner?) {
+        mark = inputMark
+        model = inputModel
+        dnz = inputDnz
+        carOwner = inputCarOwner
+    }
     
 }

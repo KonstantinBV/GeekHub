@@ -10,8 +10,8 @@ import Foundation
 
 public class Fighter: Airplane {
     
-    override init (initMark: String, initModel: String, initMaximumSpeed: Double, initMaximumHeigth: Double) {
-        super.init(initMark: initMark, initModel: initModel, initMaximumSpeed: initMaximumSpeed, initMaximumHeigth: initMaximumHeigth)
+    override init (_ initMark: String, _ initModel: String, _ initMaximumSpeed: Double, _ initMaximumHeigth: Double) {
+        super.init(initMark, initModel, initMaximumSpeed, initMaximumHeigth)
     }
     
     override public func getAirplaneCost() -> Double {

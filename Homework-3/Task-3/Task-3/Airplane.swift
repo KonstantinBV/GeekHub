@@ -26,8 +26,8 @@ public class Airplane {
             + " cost - \(getAirplaneCost())"
     }
     
-     init (initMark: String, initModel: String,
-        initMaximumSpeed: Double, initMaximumHeigth: Double) {
+     init (_ initMark: String, _ initModel: String,
+        _ initMaximumSpeed: Double, _ initMaximumHeigth: Double) {
         mark = initMark
         model = initModel
         maximumSpeed = initMaximumSpeed

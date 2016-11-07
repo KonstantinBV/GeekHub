@@ -8,9 +8,9 @@
 
 import Foundation
 
-let boing777 = Airplane(initMark: "boing", initModel: "777", initMaximumSpeed: 500, initMaximumHeigth: 10000)
-let b22 = Bomber(initMark: "B", initModel: "22", initMaximumSpeed: 700, initMaximumHeigth: 13000)
-let f16 = Fighter(initMark: "F", initModel: "16", initMaximumSpeed: 1500, initMaximumHeigth: 15000)
+let boing777 = Airplane("boing", "777", 500, 10000)
+let b22 = Bomber("B", "22", 700, 13000)
+let f16 = Fighter("F", "16", 1500, 15000)
 
 
 print(boing777.getAirplaneInfo())
