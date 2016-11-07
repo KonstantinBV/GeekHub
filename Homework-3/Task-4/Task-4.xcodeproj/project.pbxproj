@@ -10,7 +10,9 @@
 		B55B2A301DCFADD000A27EDD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55B2A2F1DCFADD000A27EDD /* main.swift */; };
 		B59207B11DCFC43C00D78970 /* CarOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59207B01DCFC43C00D78970 /* CarOwner.swift */; };
 		B59207B31DCFC70600D78970 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59207B21DCFC70600D78970 /* Car.swift */; };
-		B59207B51DCFC97700D78970 /* Garage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59207B41DCFC97700D78970 /* Garage.swift */; };
+		B59207B51DCFC97700D78970 /* CarsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59207B41DCFC97700D78970 /* CarsCollection.swift */; };
+		B5E966F81DD08A170018CFD1 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E966F71DD08A170018CFD1 /* Tools.swift */; };
+		B5E966FA1DD0B3F30018CFD1 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E966F91DD0B3F20018CFD1 /* Catalog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,7 +32,9 @@
 		B55B2A2F1DCFADD000A27EDD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B59207B01DCFC43C00D78970 /* CarOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarOwner.swift; sourceTree = "<group>"; };
 		B59207B21DCFC70600D78970 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
-		B59207B41DCFC97700D78970 /* Garage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Garage.swift; sourceTree = "<group>"; };
+		B59207B41DCFC97700D78970 /* CarsCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsCollection.swift; sourceTree = "<group>"; };
+		B5E966F71DD08A170018CFD1 /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		B5E966F91DD0B3F20018CFD1 /* Catalog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +70,9 @@
 				B55B2A2F1DCFADD000A27EDD /* main.swift */,
 				B59207B01DCFC43C00D78970 /* CarOwner.swift */,
 				B59207B21DCFC70600D78970 /* Car.swift */,
-				B59207B41DCFC97700D78970 /* Garage.swift */,
+				B59207B41DCFC97700D78970 /* CarsCollection.swift */,
+				B5E966F71DD08A170018CFD1 /* Tools.swift */,
+				B5E966F91DD0B3F20018CFD1 /* Catalog.swift */,
 			);
 			path = "Task-4";
 			sourceTree = "<group>";
@@ -130,8 +136,10 @@
 			files = (
 				B59207B31DCFC70600D78970 /* Car.swift in Sources */,
 				B59207B11DCFC43C00D78970 /* CarOwner.swift in Sources */,
-				B59207B51DCFC97700D78970 /* Garage.swift in Sources */,
+				B59207B51DCFC97700D78970 /* CarsCollection.swift in Sources */,
+				B5E966FA1DD0B3F30018CFD1 /* Catalog.swift in Sources */,
 				B55B2A301DCFADD000A27EDD /* main.swift in Sources */,
+				B5E966F81DD08A170018CFD1 /* Tools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

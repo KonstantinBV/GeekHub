@@ -10,17 +10,30 @@ import Foundation
 
 public class Car {
     
-    public var mark: String = ""
-    public var model: String = ""
-    public var dnz: String = ""
-    
+    var mark: String
+    var model: String
+    public var dnz: String
     public var carOwner: CarOwner?
     
-    init (_ inputMark: String, _ inputModel: String, _ inputDnz: String, _ inputCarOwner: CarOwner?) {
+    public var isEmpty: Bool { return mark.isEmpty && model.isEmpty && dnz.isEmpty }
+    
+    init() {
+        mark = ""
+        model = ""
+        dnz = ""
+    }
+    
+    init(_ inputMark: String, _ inputModel: String, _ inputDnz: String) {
         mark = inputMark
         model = inputModel
         dnz = inputDnz
-        carOwner = inputCarOwner
     }
     
+    public func getInfo() -> String {
+        var mainInfo = isEmpty ? "No car info!" : "\(dnz), \(mark), \(model)"
+        if let subInfo: String = carOwner!.getInfo() {
+            mainInfo.appendContentsOf(", " + subInfo)
+        }
+        return mainInfo
+    }
 }
