@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class Catalog {
+public class Catalog: Tools {
     
     private var carsOwners: [CarOwner]
     
-    init() {
+    override init() {
         carsOwners = []
     }
 
@@ -58,6 +58,10 @@ public class Catalog {
     }
     
     public func printCatalog() {
+        if carsOwners.count == 0 {
+            print("Каталог пуст!")
+            return
+        }
         var cars: [Car] = []
         for carOwner in carsOwners {
             if let validCars: [Car] = carOwner.getCars() {
@@ -91,8 +95,9 @@ public class Catalog {
             if let userInput: String = readLine() {
                 if !userInput.isEmpty {
                     if let ownerIndex: Int = Int(userInput) {
-                        if let carOwner: CarOwner = carsOwners[ownerIndex] {
-                            showCarOwnerRemoveActions(carOwner)
+                        if ownerIndex >= 0 && ownerIndex < carsOwners.count {
+                            let carOwner: CarOwner = carsOwners[ownerIndex]
+                            showCarOwnerRemoveActions(carOwner, ownerIndex: ownerIndex)
                         } else {
                             print("Автовладельца с номером \(ownerIndex) нет в каталоге")
                             removeData()
@@ -109,7 +114,33 @@ public class Catalog {
         }
     }
     
-    private func showCarOwnerRemoveActions(carOwner: CarOwner) {
-        
+    private func showCarOwnerRemoveActions(carOwner: CarOwner, ownerIndex:  Int) {
+        var catalogActions: [Int : String] = [:]
+        catalogActions[1] = "Удаление автовладельца"
+        catalogActions[2] = "Удаление автомобиля"
+        catalogActions[3] = "Возврат в предыдущее меню"
+        catalogActions[4] = "Завершить работу"
+        printActions(catalogActions)
+        if let userInput: Int = Int(readLine()!) {
+            switch (userInput) {
+            case 1 :
+                carsOwners.removeAtIndex(ownerIndex)
+                print("Запись успешно удалена")
+                removeData()
+            case 2 :
+                carOwner.removeCar()
+                showCarOwnerRemoveActions(carOwner, ownerIndex: ownerIndex)
+            case 3 :
+                removeData()
+            case 4 :
+                print("Программа завершила работу.")
+            default:
+                print("Неверная операция!")
+                showCarOwnerRemoveActions(carOwner, ownerIndex: ownerIndex)
+            }
+        } else {
+            print("Неверная операция!")
+            showCarOwnerRemoveActions(carOwner, ownerIndex: ownerIndex)
+        }
     }
 }

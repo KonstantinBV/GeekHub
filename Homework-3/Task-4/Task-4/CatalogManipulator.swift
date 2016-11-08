@@ -8,12 +8,15 @@
 
 import Foundation
 
-public class CatalogManipulator {
+public class CatalogManipulator: Tools {
     
     private var carsCatalog: Catalog
     
-    init() {
-        carsCatalog = Catalog()
+    init(catalog: Catalog) {
+        carsCatalog = catalog
+    }
+    convenience override init() {
+        self.init(catalog: Catalog())
         initDefaultCatalog()
     }
     
@@ -59,10 +62,12 @@ public class CatalogManipulator {
                 case 4 :
                     print("Программа завершила работу.")
                 default:
-                    runOnError()
+                    print("Неверная операция!")
+                    showMainActions()
             }
         } else {
-            runOnError()
+            print("Неверная операция!")
+            showMainActions()
         }
     }
     
@@ -92,12 +97,12 @@ public class CatalogManipulator {
     }
     
     private func showCatalogActions() {
-        var newCarOwnerActions: [Int : String] = [:]
-        newCarOwnerActions[1] = "Редактирование данных каталога"
-        newCarOwnerActions[2] = "Удаление данных каталога"
-        newCarOwnerActions[3] = "Возврат в предыдущее меню"
-        newCarOwnerActions[4] = "Завершить работу"
-        printActions(newCarOwnerActions)
+        var catalogActions: [Int : String] = [:]
+        catalogActions[1] = "Редактирование данных каталога"
+        catalogActions[2] = "Удаление данных каталога"
+        catalogActions[3] = "Возврат в предыдущее меню"
+        catalogActions[4] = "Завершить работу"
+        printActions(catalogActions)
         if let userInput: Int = Int(readLine()!) {
             switch (userInput) {
             case 1 :
@@ -140,21 +145,7 @@ public class CatalogManipulator {
                 showCarOwnerActions(carOwner)
             }
         }
-    }
-    
-    private func printActions(actions: [Int : String]) {
-        print("Выберите одну из доступных операций.")
-        print("")
-        let sortedActions = actions.sort { $0.0 < $1.0 }
-        for (actionKey, actionMessage) in sortedActions {
-            print("\(actionKey) - \(actionMessage)")
-        }
-    }
-    
-    private func runOnError() {
-        print("Неверная операция!")
-        showMainActions()
-    }
+    }   
     
     private func printCatalog() {
         carsCatalog.printCatalog()

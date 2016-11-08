@@ -68,6 +68,41 @@ public class CarOwner: Equatable {
         carsCollection!.addCar(car, reportProgress: reportProgress)
     }
     
+    public func removeCar() -> Bool {
+        let cars: [Car] = carsCollection!.getCars()
+        if cars.count == 0 {
+            print("Информация для удаления отсутствует.")
+            print("Коллекция автомобилей пуста.")
+        } else {
+            print("Список автомобилей:")
+            for (index, car) in cars.enumerate() {
+                print("\(index) - \(car.getInfo())")
+            }
+            print("Введите порядковый номер автомобиля для продолжения операции удаления.")
+            print("Или нажмите Enter для возврата в предыдущее меню.")
+            if let userInput: String = readLine() {
+                if !userInput.isEmpty {
+                    if let carIndex: Int = Int(userInput) {
+                        if let car: Car = cars[carIndex] {
+                            removeCar(car)
+                        } else {
+                            print("Автомобиль с порядковым номером \(carIndex) не найден")
+                            removeCar()
+                        }
+                    } else {
+                        print("Введенное значение не является номером")
+                        removeCar()
+                    }
+                }
+            } else {
+                print("Неверная операция!")
+                removeCar()
+            }
+        }
+
+        return false
+    }
+    
     public func removeCar(car: Car) {
         carsCollection!.removeCar(car)
     }
