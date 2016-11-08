@@ -44,15 +44,18 @@ public class CatalogManipulator {
         var mainActions: [Int : String] = [:]
         mainActions[1] = "Вывести каталог автовладельцев на экран"
         mainActions[2] = "Добавить нового автовладельца в каталог"
-        mainActions[3] = "Редактировать данные автовладельца"
+        mainActions[3] = "Редактировать данные каталога"
         mainActions[4] = "Завершить работу"
         printActions(mainActions)
         if let userInput: Int = Int(readLine()!) {
             switch (userInput) {
                 case 1 :
                     printCatalog()
+                    showMainActions()
                 case 2 :
                     addNewCarOwner()
+                case 3 :
+                    showCatalogActions()
                 case 4 :
                     print("Программа завершила работу.")
                 default:
@@ -60,14 +63,6 @@ public class CatalogManipulator {
             }
         } else {
             runOnError()
-        }
-    }
-    
-    private func addNewCarOwner() {
-        if let carOwner = carsCatalog.addCarOwner() {
-            showCarOwnerActions(carOwner)
-        } else {
-            showMainActions()
         }
     }
     
@@ -88,23 +83,61 @@ public class CatalogManipulator {
                 print("Программа завершила работу.")
             default:
                 print("Неверная операция!")
-                addNewCarOwner()
+                showCarOwnerActions(carOwner)
             }
         } else {
             print("Неверная операция!")
-            addNewCarOwner()
+            showCarOwnerActions(carOwner)
         }
-
+    }
+    
+    private func showCatalogActions() {
+        var newCarOwnerActions: [Int : String] = [:]
+        newCarOwnerActions[1] = "Редактирование данных каталога"
+        newCarOwnerActions[2] = "Удаление данных каталога"
+        newCarOwnerActions[3] = "Возврат в предыдущее меню"
+        newCarOwnerActions[4] = "Завершить работу"
+        printActions(newCarOwnerActions)
+        if let userInput: Int = Int(readLine()!) {
+            switch (userInput) {
+            case 1 :
+                carsCatalog.editData()
+                showCatalogActions()
+            case 2 :
+                carsCatalog.removeData()
+                showCatalogActions()
+            case 3 :
+                showMainActions()
+            case 4 :
+                print("Программа завершила работу.")
+            default:
+                print("Неверная операция!")
+                showCatalogActions()
+            }
+        } else {
+            print("Неверная операция!")
+            showCatalogActions()
+        }
+    }
+    
+    private func addNewCarOwner() {
+        if let carOwner = carsCatalog.addCarOwner() {
+            showCarOwnerActions(carOwner)
+        } else {
+            showMainActions()
+        }
     }
     
     private func addCarsForCarOwner(carOwner: CarOwner) {
         carOwner.addCar()
-        print("Желаете повторить операцию?")
+        print("Желаете добавить автомобиль в коллекцию?")
         print("1 - да")
         print("Любое другое значение - нет")
         if let yesNoResult: String = readLine() {
             if yesNoResult == "1" {
                 self.addCarsForCarOwner(carOwner)
+            } else {
+                showCarOwnerActions(carOwner)
             }
         }
     }

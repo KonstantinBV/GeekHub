@@ -15,7 +15,7 @@ public class Car {
     var dnz: String
     var carOwner: CarOwner?
     
-    public var isEmpty: Bool { return brand.isEmpty && model.isEmpty && dnz.isEmpty }
+    public var isEmpty: Bool { return brand.isEmpty || model.isEmpty || dnz.isEmpty }
     
     init() {
         brand = ""

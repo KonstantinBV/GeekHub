@@ -15,7 +15,7 @@ public class CarOwner: Equatable {
     var address: String
     var carsCollection: CarsCollection?
     
-    public var isEmpty: Bool { return name.isEmpty && surname.isEmpty }
+    public var isEmpty: Bool { return name.isEmpty || surname.isEmpty }
     
     init() {
         name = ""
@@ -49,8 +49,7 @@ public class CarOwner: Equatable {
             car.dnz = dnz
         }
         if !car.isEmpty {
-            self.addCar(car)
-            print("Автомобиль успешно добавлен в коллекцию")
+            self.addCar(car)            
             return car
         }
         print("Ошибка. Все поля обязательны для введения.")

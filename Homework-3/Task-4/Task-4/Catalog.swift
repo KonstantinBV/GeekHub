@@ -74,4 +74,42 @@ public class Catalog {
         }
     }
     
+    public func editData() {
+        
+    }
+    
+    public func removeData() {
+        if carsOwners.count == 0 {
+            print("Информация для удаления отсутствует. Каталог пуст.")
+        } else {
+            print("Список автовладельцев:")
+            for (index, carOwner) in carsOwners.enumerate() {
+                print("\(index) - \(carOwner.getInfo())")
+            }
+            print("Введите номер автовладельца для продолжения операции удаления.")
+            print("Или нажмите Enter для возврата в предыдущее меню.")
+            if let userInput: String = readLine() {
+                if !userInput.isEmpty {
+                    if let ownerIndex: Int = Int(userInput) {
+                        if let carOwner: CarOwner = carsOwners[ownerIndex] {
+                            showCarOwnerRemoveActions(carOwner)
+                        } else {
+                            print("Автовладельца с номером \(ownerIndex) нет в каталоге")
+                            removeData()
+                        }
+                    } else {
+                        print("Введенное значение не является номером")
+                        removeData()
+                    }
+                }
+            } else {
+                print("Неверная операция!")
+                removeData()
+            }
+        }
+    }
+    
+    private func showCarOwnerRemoveActions(carOwner: CarOwner) {
+        
+    }
 }
