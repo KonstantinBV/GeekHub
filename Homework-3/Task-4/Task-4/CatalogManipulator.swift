@@ -11,12 +11,10 @@ import Foundation
 public class CatalogManipulator {
     
     private var carsCatalog: Catalog
-    private var actions: [Int : String] = [:]
     
     init() {
         carsCatalog = Catalog()
         initDefaultCatalog()
-        initActions()
     }
     
     private func initDefaultCatalog() {
@@ -42,24 +40,19 @@ public class CatalogManipulator {
         carsCatalog.addCarOwner(petrov)
     }
     
-    private func initActions() {
-        actions[1] = "Вывести каталог автовладельцев на экран"
-        actions[2] = "Добавить нового автовладельца"
-        actions[3] = "Редактировать данные автовладельца"
-        actions[4] = "Завершить работу"
-    }
-    
-    func run() {
-        print("Выберите одну из доступных операций.")
-        print("")
-        let sortedActions = actions.sort { $0.0 < $1.0 }
-        for (actionKey, actionMessage) in sortedActions {
-            print("\(actionKey) - \(actionMessage)")
-        }
+    func showMainActions() {
+        var mainActions: [Int : String] = [:]
+        mainActions[1] = "Вывести каталог автовладельцев на экран"
+        mainActions[2] = "Добавить нового автовладельца в каталог"
+        mainActions[3] = "Редактировать данные автовладельца"
+        mainActions[4] = "Завершить работу"
+        printActions(mainActions)
         if let userInput: Int = Int(readLine()!) {
             switch (userInput) {
                 case 1 :
                     printCatalog()
+                case 2 :
+                    addNewCarOwner()
                 case 4 :
                     print("Программа завершила работу.")
                 default:
@@ -70,9 +63,64 @@ public class CatalogManipulator {
         }
     }
     
+    private func addNewCarOwner() {
+        if let carOwner = carsCatalog.addCarOwner() {
+            showCarOwnerActions(carOwner)
+        } else {
+            showMainActions()
+        }
+    }
+    
+    private func showCarOwnerActions(carOwner: CarOwner) {
+        var newCarOwnerActions: [Int : String] = [:]
+        newCarOwnerActions[1] = "Добавить автомобиль в коллекцию"
+        newCarOwnerActions[2] = "Возврат в предыдущее меню"
+        newCarOwnerActions[3] = "Завершить работу"
+        printActions(newCarOwnerActions)
+        if let userInput: Int = Int(readLine()!) {
+            switch (userInput) {
+            case 1 :
+                addCarsForCarOwner(carOwner)
+                addNewCarOwner()
+            case 2 :
+                showMainActions()
+            case 3 :
+                print("Программа завершила работу.")
+            default:
+                print("Неверная операция!")
+                addNewCarOwner()
+            }
+        } else {
+            print("Неверная операция!")
+            addNewCarOwner()
+        }
+
+    }
+    
+    private func addCarsForCarOwner(carOwner: CarOwner) {
+        carOwner.addCar()
+        print("Желаете повторить операцию?")
+        print("1 - да")
+        print("Любое другое значение - нет")
+        if let yesNoResult: String = readLine() {
+            if yesNoResult == "1" {
+                self.addCarsForCarOwner(carOwner)
+            }
+        }
+    }
+    
+    private func printActions(actions: [Int : String]) {
+        print("Выберите одну из доступных операций.")
+        print("")
+        let sortedActions = actions.sort { $0.0 < $1.0 }
+        for (actionKey, actionMessage) in sortedActions {
+            print("\(actionKey) - \(actionMessage)")
+        }
+    }
+    
     private func runOnError() {
         print("Неверная операция!")
-        run()
+        showMainActions()
     }
     
     private func printCatalog() {

@@ -15,6 +15,37 @@ public class Catalog {
     init() {
         carsOwners = []
     }
+
+    public func addCarOwner() -> CarOwner? {
+        let carOwner: CarOwner = CarOwner()
+        print("Введите имя")
+        if let name: String = readLine() {
+            carOwner.name = name
+        }
+        print("Введите фамилию")
+        if let surname: String = readLine() {
+            carOwner.surname = surname
+        }
+        print("Введите адрес")
+        if let address: String = readLine() {
+            carOwner.address = address
+        }
+        if !carOwner.isEmpty {
+            carsOwners.append(carOwner)
+            print("Автовладелец успешно добавлен в каталог")
+            return carOwner
+        }
+        print("Ошибка. Имя и фамилия - обязательные поля.")
+        print("Желаете повторить операцию?")
+        print("1 - да")
+        print("Любое другое значение - нет")
+        if let yesNoResult: String = readLine() {
+            if yesNoResult == "1" {
+                self.addCarOwner()
+            }
+        }
+        return nil
+    }
     
     public func addCarOwner(carOwner: CarOwner) {
         carsOwners.append(carOwner)

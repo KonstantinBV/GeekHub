@@ -9,4 +9,4 @@
 import Foundation
 
 let manipulator: CatalogManipulator = CatalogManipulator()
-manipulator.run()
+manipulator.showMainActions()

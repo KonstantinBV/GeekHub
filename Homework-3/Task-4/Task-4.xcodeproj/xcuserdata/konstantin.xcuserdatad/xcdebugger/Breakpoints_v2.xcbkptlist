@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Task-4/Catalog.swift"
-            timestampString = "500225446.952775"
+            timestampString = "500295564.761912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "removeCarOwner(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Task-4/CarOwner.swift"
-            timestampString = "500227581.905671"
+            timestampString = "500295564.761912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "addCar(_:reportProgress:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -88,28 +88,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Task-4/Catalog.swift"
-            timestampString = "500227182.023194"
+            timestampString = "500295564.761912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "printCatalog()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Task-4/CatalogManipulator.swift"
-            timestampString = "500251896.896671"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "run()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

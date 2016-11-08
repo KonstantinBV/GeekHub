@@ -10,10 +10,10 @@ import Foundation
 
 public class Car {
     
-    private var brand: String
-    private var model: String
-    public var dnz: String
-    public var carOwner: CarOwner?
+    var brand: String
+    var model: String
+    var dnz: String
+    var carOwner: CarOwner?
     
     public var isEmpty: Bool { return brand.isEmpty && model.isEmpty && dnz.isEmpty }
     
