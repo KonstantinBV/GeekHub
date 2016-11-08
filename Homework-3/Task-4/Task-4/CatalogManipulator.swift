@@ -21,22 +21,22 @@ public class CatalogManipulator: Tools {
     }
     
     private func initDefaultCatalog() {
-        let abramov = CarOwner("Ivan", "Abramov", "Cherkassy, Chigirinskaya, 6")
-        abramov.addCar(Car("BMW", "5", "CA1522AB"), reportProgress: false)
-        abramov.addCar(Car("VAZ", "2105", "CA2284MA"), reportProgress: false)
-        abramov.addCar(Car("Mazda", "6", "CA5699MB"), reportProgress: false)
+        let abramov = CarOwner("Иван", "Абрамов", "Черкассы, Чигиринская, 6")
+        abramov.addCar(Car("BMW", "5", "СА1522МВ"), reportProgress: false)
+        abramov.addCar(Car("ВАЗ", "2105", "СА3698АА"), reportProgress: false)
+        abramov.addCar(Car("Mazda", "6", "СА5936АР"), reportProgress: false)
         
-        let krasnov = CarOwner("Vasiliy", "Krasnov", "Cherkassy, Pionerskaya, 22a")
-        krasnov.addCar(Car("VAZ", "2106", "CA1122AH"), reportProgress: false)
-        krasnov.addCar(Car("VAZ", "2106", "CA2385MA"), reportProgress: false)
-        krasnov.addCar(Car("Lada", "Kalina", "CA5699BB"), reportProgress: false)
-        krasnov.addCar(Car("ZAZ", "Lanos", "CA2592BA"), reportProgress: false)
+        let krasnov = CarOwner("Василий", "Краснов", "Черкассы, Пионерская, 22а")
+        krasnov.addCar(Car("ВАЗ", "2106", "СА1122АН"), reportProgress: false)
+        krasnov.addCar(Car("ВАЗ", "2106", "СА2385МА"), reportProgress: false)
+        krasnov.addCar(Car("Lada", "Kalina", "СА5699ВВ"), reportProgress: false)
+        krasnov.addCar(Car("ЗАЗ", "Lanos", "СА2592ВА"), reportProgress: false)
         
-        let petrov = CarOwner("Andrey", "Petrov", "Cherkassy, Pionerskaya, 22b")
-        petrov.addCar(Car("GAZ", "69", "CA2355AH"), reportProgress: false)
-        petrov.addCar(Car("ZAZ", "Forza", "CA9236MA"), reportProgress: false)
-        petrov.addCar(Car("Lada", "Kalina", "CA7211BB"), reportProgress: false)
-        petrov.addCar(Car("Ford", "Focus", "CA2759BA"), reportProgress: false)
+        let petrov = CarOwner("Андрей", "Петров", "Черкассы, Пионерская, 22б")
+        petrov.addCar(Car("ГАЗ", "69", "СА2355АН"), reportProgress: false)
+        petrov.addCar(Car("ЗАЗ", "Forza", "СА9236МН"), reportProgress: false)
+        petrov.addCar(Car("Lada", "Kalina", "СА7723МС"), reportProgress: false)
+        petrov.addCar(Car("Ford", "Focus", "СА1105РР"), reportProgress: false)
         
         carsCatalog.addCarOwner(abramov)
         carsCatalog.addCarOwner(krasnov)
@@ -48,7 +48,8 @@ public class CatalogManipulator: Tools {
         mainActions[1] = "Вывести каталог автовладельцев на экран"
         mainActions[2] = "Добавить нового автовладельца в каталог"
         mainActions[3] = "Редактировать данные каталога"
-        mainActions[4] = "Завершить работу"
+        mainActions[4] = "Поиск по номерногу знаку"
+        mainActions[5] = "Завершить работу"
         printActions(mainActions)
         if let userInput: Int = Int(readLine()!) {
             switch (userInput) {
@@ -60,6 +61,9 @@ public class CatalogManipulator: Tools {
                 case 3 :
                     showCatalogActions()
                 case 4 :
+                    searchCars()
+                    showMainActions()
+                case 5 :
                     print("Программа завершила работу.")
                 default:
                     print("Неверная операция!")
@@ -122,6 +126,32 @@ public class CatalogManipulator: Tools {
         } else {
             print("Неверная операция!")
             showCatalogActions()
+        }
+    }
+    
+    private func searchCars() {
+        var searchResult: [Car] = []
+        print("Для поиска введите номерной знак или часть номерного")
+        if let userInput: String = readLine() {
+            if userInput.isEmpty {
+                print("Ошибка.")
+                print("Значение номерного знака не может быть пустым!")
+                searchCars()
+                return
+            }
+            searchResult = carsCatalog.searchCars(userInput)
+            if !searchResult.isEmpty {
+                print("Обнаружено \(searchResult.count) совпадений:")
+                for (carIndex, car) in searchResult.enumerate() {
+                    print("")
+                    print("<\(carIndex + 1)>")
+                    print("\(car.getInfo())")
+                    print("\(car.carOwner!.getInfo())")
+                    print("</\(carIndex + 1)>")
+                }
+            } else {
+                print("Совпадения не обнаружены")
+            }
         }
     }
     

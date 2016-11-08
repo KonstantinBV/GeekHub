@@ -31,8 +31,8 @@ public class CarOwner: Equatable {
         address = inputAddress
     }
     
-    public func findCar(carDnz: String) -> [Car]? {
-        return carsCollection!.findCar(carDnz)
+    public func searchCars(carDnz: String) -> [Car]? {
+        return carsCollection!.searchCars(carDnz)
     }
     
     public func addCar() -> Car? {

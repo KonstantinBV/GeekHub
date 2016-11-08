@@ -21,12 +21,12 @@ public class CarsCollection {
         cars[car.dnz] = car
     }
     
-    public func findCar(carDnz: String) -> [Car] {
+    public func searchCars(carDnz: String) -> [Car] {
         var validCars: [Car] = []
         if let dnz: String = Tools.replace(carDnz, " ", "") {
             if !cars.isEmpty && !dnz.isEmpty {
                 for (carKey, car) in cars {
-                    if carKey.containsString(dnz) {
+                    if carKey.lowercaseString.containsString(dnz.lowercaseString) {
                         validCars.append(car)
                     }
                 }

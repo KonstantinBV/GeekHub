@@ -78,6 +78,16 @@ public class Catalog: Tools {
         }
     }
     
+    public func searchCars(dnz: String) -> [Car] {
+        var result: [Car] = []
+        for carOwner in carsOwners {
+            if let ownerResult: [Car] = carOwner.searchCars(dnz) {
+                result += ownerResult
+            }
+        }
+        return result
+    }
+    
     public func editData() {
         
     }

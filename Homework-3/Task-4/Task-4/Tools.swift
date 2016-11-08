@@ -21,6 +21,7 @@ public class Tools {
     }
     
     func printActions(actions: [Int : String]) {
+        print("")
         print("Выберите одну из доступных операций.")
         print("")
         let sortedActions = actions.sort { $0.0 < $1.0 }
