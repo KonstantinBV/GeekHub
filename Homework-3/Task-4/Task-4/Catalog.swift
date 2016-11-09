@@ -18,32 +18,11 @@ public class Catalog: Tools {
 
     public func addCarOwner() -> CarOwner? {
         let carOwner: CarOwner = CarOwner()
-        print("Введите имя")
-        if let name: String = readLine() {
-            carOwner.name = name
-        }
-        print("Введите фамилию")
-        if let surname: String = readLine() {
-            carOwner.surname = surname
-        }
-        print("Введите адрес")
-        if let address: String = readLine() {
-            carOwner.address = address
-        }
-        if !carOwner.isEmpty {
+        if CarOwner.edit(carOwner) {
             carsOwners.append(carOwner)
             print("Автовладелец успешно добавлен в каталог")
             return carOwner
-        }
-        print("Ошибка. Имя и фамилия - обязательные поля.")
-        print("Желаете повторить операцию?")
-        print("1 - да")
-        print("Любое другое значение - нет")
-        if let yesNoResult: String = readLine() {
-            if yesNoResult == "1" {
-                self.addCarOwner()
-            }
-        }
+        }        
         return nil
     }
     
@@ -88,69 +67,73 @@ public class Catalog: Tools {
         return result
     }
     
-    public func editData() {
-        
+    public func showEditDataActions() {
+        if let selectedOwner = selectCarOwnerByIndex() {
+            showCarOwnerEditActions(selectedOwner.carOwner, ownerIndex: selectedOwner.ownerIndex)
+        }
     }
     
-    public func removeData() {
+    public func selectCarOwnerByIndex() -> (ownerIndex: Int, carOwner: CarOwner)? {
         if carsOwners.count == 0 {
-            print("Информация для удаления отсутствует. Каталог пуст.")
+            print("Каталог пуст.")
         } else {
-            print("Список автовладельцев:")
-            for (index, carOwner) in carsOwners.enumerate() {
-                print("\(index) - \(carOwner.getInfo())")
-            }
-            print("Введите номер автовладельца для продолжения операции удаления.")
+            printWithIndex(carsOwners, message: "Список автовладельцев:")
+            print("Введите номер автовладельца:")
             print("Или нажмите Enter для возврата в предыдущее меню.")
             if let userInput: String = readLine() {
                 if !userInput.isEmpty {
                     if let ownerIndex: Int = Int(userInput) {
                         if ownerIndex >= 0 && ownerIndex < carsOwners.count {
-                            let carOwner: CarOwner = carsOwners[ownerIndex]
-                            showCarOwnerRemoveActions(carOwner, ownerIndex: ownerIndex)
+                            return (ownerIndex: ownerIndex, carOwner: carsOwners[ownerIndex])
                         } else {
                             print("Автовладельца с номером \(ownerIndex) нет в каталоге")
-                            removeData()
+                            selectCarOwnerByIndex()
                         }
                     } else {
                         print("Введенное значение не является номером")
-                        removeData()
+                        selectCarOwnerByIndex()
                     }
                 }
             } else {
                 print("Неверная операция!")
-                removeData()
+                selectCarOwnerByIndex()
             }
         }
+        return nil
     }
     
-    private func showCarOwnerRemoveActions(carOwner: CarOwner, ownerIndex:  Int) {
+    private func showCarOwnerEditActions(carOwner: CarOwner, ownerIndex:  Int) {
+        print("Выбрана запись: \(carOwner.getInfo())")
         var catalogActions: [Int : String] = [:]
-        catalogActions[1] = "Удаление автовладельца"
-        catalogActions[2] = "Удаление автомобиля"
-        catalogActions[3] = "Возврат в предыдущее меню"
-        catalogActions[4] = "Завершить работу"
+        catalogActions[1] = "Изменение данных автовладельца"
+        catalogActions[2] = "Удаление автовладельца"
+        catalogActions[3] = "Изменение данных автоколлекции"
+        catalogActions[4] = "Возврат в предыдущее меню"
+        catalogActions[5] = "Завершить работу"
         printActions(catalogActions)
         if let userInput: Int = Int(readLine()!) {
             switch (userInput) {
             case 1 :
+                CarOwner.edit(carOwner)
+                showEditDataActions()
+            case 2 :
                 carsOwners.removeAtIndex(ownerIndex)
                 print("Запись успешно удалена")
-                removeData()
-            case 2 :
-                carOwner.removeCar()
-                showCarOwnerRemoveActions(carOwner, ownerIndex: ownerIndex)
+                showEditDataActions()
             case 3 :
-                removeData()
+                carOwner.editCarCollection()
+                showCarOwnerEditActions(carOwner, ownerIndex: ownerIndex)
             case 4 :
+                showEditDataActions()
+            case 5 :
                 print("Программа завершила работу.")
             default:
                 print("Неверная операция!")
-                showCarOwnerRemoveActions(carOwner, ownerIndex: ownerIndex)
+                showCarOwnerEditActions(carOwner, ownerIndex: ownerIndex)
             }
         } else {
             print("Неверная операция!")
-            showCarOwnerRemoveActions(carOwner, ownerIndex: ownerIndex)
+            showCarOwnerEditActions(carOwner, ownerIndex: ownerIndex)
         }
     }
 }

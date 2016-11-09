@@ -47,7 +47,7 @@ public class CatalogManipulator: Tools {
         var mainActions: [Int : String] = [:]
         mainActions[1] = "Вывести каталог автовладельцев на экран"
         mainActions[2] = "Добавить нового автовладельца в каталог"
-        mainActions[3] = "Редактировать данные каталога"
+        mainActions[3] = "Изменить данные каталога"
         mainActions[4] = "Поиск по номерногу знаку"
         mainActions[5] = "Завершить работу"
         printActions(mainActions)
@@ -59,7 +59,8 @@ public class CatalogManipulator: Tools {
                 case 2 :
                     addNewCarOwner()
                 case 3 :
-                    showCatalogActions()
+                    carsCatalog.showEditDataActions()
+                    showMainActions()
                 case 4 :
                     searchCars()
                     showMainActions()
@@ -97,35 +98,6 @@ public class CatalogManipulator: Tools {
         } else {
             print("Неверная операция!")
             showCarOwnerActions(carOwner)
-        }
-    }
-    
-    private func showCatalogActions() {
-        var catalogActions: [Int : String] = [:]
-        catalogActions[1] = "Редактирование данных каталога"
-        catalogActions[2] = "Удаление данных каталога"
-        catalogActions[3] = "Возврат в предыдущее меню"
-        catalogActions[4] = "Завершить работу"
-        printActions(catalogActions)
-        if let userInput: Int = Int(readLine()!) {
-            switch (userInput) {
-            case 1 :
-                carsCatalog.editData()
-                showCatalogActions()
-            case 2 :
-                carsCatalog.removeData()
-                showCatalogActions()
-            case 3 :
-                showMainActions()
-            case 4 :
-                print("Программа завершила работу.")
-            default:
-                print("Неверная операция!")
-                showCatalogActions()
-            }
-        } else {
-            print("Неверная операция!")
-            showCatalogActions()
         }
     }
     

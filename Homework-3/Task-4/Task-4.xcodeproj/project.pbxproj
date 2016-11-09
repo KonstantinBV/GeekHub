@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B526375E1DD30A0D0053ACDA /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = B526375D1DD30A0D0053ACDA /* Info.swift */; };
 		B55B2A301DCFADD000A27EDD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55B2A2F1DCFADD000A27EDD /* main.swift */; };
 		B59207B11DCFC43C00D78970 /* CarOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59207B01DCFC43C00D78970 /* CarOwner.swift */; };
 		B59207B31DCFC70600D78970 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59207B21DCFC70600D78970 /* Car.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B526375D1DD30A0D0053ACDA /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		B55B2A2C1DCFADD000A27EDD /* Task-4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Task-4"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B55B2A2F1DCFADD000A27EDD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B59207B01DCFC43C00D78970 /* CarOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarOwner.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				B5E966F71DD08A170018CFD1 /* Tools.swift */,
 				B5E966F91DD0B3F20018CFD1 /* Catalog.swift */,
 				B5960A021DD131EE00741E41 /* CatalogManipulator.swift */,
+				B526375D1DD30A0D0053ACDA /* Info.swift */,
 			);
 			path = "Task-4";
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B59207B31DCFC70600D78970 /* Car.swift in Sources */,
+				B526375E1DD30A0D0053ACDA /* Info.swift in Sources */,
 				B59207B11DCFC43C00D78970 /* CarOwner.swift in Sources */,
 				B59207B51DCFC97700D78970 /* CarsCollection.swift in Sources */,
 				B5E966FA1DD0B3F30018CFD1 /* Catalog.swift in Sources */,

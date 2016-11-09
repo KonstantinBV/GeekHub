@@ -28,5 +28,14 @@ public class Tools {
         for (actionKey, actionMessage) in sortedActions {
             print("\(actionKey) - \(actionMessage)")
         }
+    }   
+    
+    func printWithIndex<T: Info>(items: [T], message: String?){
+        if let msg: String = message {
+            print("\(msg)")
+        }
+        for (index, item) in items.enumerate() {
+            print("\(index) - \(item.getInfo())")
+        }
     }
 }
