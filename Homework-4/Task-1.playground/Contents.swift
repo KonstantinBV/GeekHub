@@ -17,12 +17,12 @@ players.count
 var teams = [[String]](count:players.count/playersInTeamCount, repeatedValue:[String]())
 
 for player in players {
-    var isPlayerInTeam = true
-    while (isPlayerInTeam) {
+    var isPlayerInTeam = false
+    while (!isPlayerInTeam) {
         var randomTeamIndex = Int(arc4random_uniform(UInt32(players.count/playersInTeamCount)))
         if teams[randomTeamIndex].count < playersInTeamCount {
             teams[randomTeamIndex].append(player)
-            isPlayerInTeam = false
+            isPlayerInTeam = true
             teams.dropLast()
         }
     }
