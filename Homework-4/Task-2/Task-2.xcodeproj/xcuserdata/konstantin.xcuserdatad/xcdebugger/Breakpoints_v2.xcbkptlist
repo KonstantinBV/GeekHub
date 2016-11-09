@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
             endingLineNumber = "23"
-            landmarkName = "init(fishWeigth:fishName:)"
+            landmarkName = "init(fishID:fishWeigth:fishName:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +42,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Task-2/Aquarium.swift"
-            timestampString = "500411315.507349"
+            timestampString = "500422821.568036"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "fight()"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "playWithAqurium()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Task_2.Aquarium.playWithAqurium (Task_2.Aquarium)() -&gt; ()"
+                  moduleName = "Task-2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konstantin/GeekHub/Homework-4/Task-2/Task-2/Aquarium.swift"
+                  timestampString = "500422857.758208"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "1409">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Task_2.Aquarium.playWithAqurium (Task_2.Aquarium)() -&gt; ()"
+                  moduleName = "Task-2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/konstantin/GeekHub/Homework-4/Task-2/Task-2/Aquarium.swift"
+                  timestampString = "500422857.762287"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "1433">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Task-2/Aquarium.swift"
+            timestampString = "500422917.823839"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "playWithAquarium()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

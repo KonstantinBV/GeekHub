@@ -9,5 +9,7 @@
 import Foundation
 
 public protocol Fish {
+    var fishID: Int { get set }
     var fishWeigth: Int { get set }
 }
+

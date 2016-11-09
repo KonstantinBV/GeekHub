@@ -8,12 +8,17 @@
 
 import Foundation
 
-public class GoodFish: Fish {
+public class FishSimple: Fish, Equatable {
     
     public var fishWeigth: Int
+    public var fishID: Int
     
-    init(fishWeigth: Int) {
+    init(fishID: Int, fishWeigth: Int) {
+        self.fishID = fishID
         self.fishWeigth = fishWeigth
     }
+}
 
+public func == (lhs: FishSimple, rhs: FishSimple) -> Bool {
+    return lhs == rhs
 }

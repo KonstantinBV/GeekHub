@@ -8,5 +8,7 @@
 
 import Foundation
 
-print("Hello, World!")
+let aquarium = Aquarium()
+aquarium.playWithAqurium()
+
 
