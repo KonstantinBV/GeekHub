@@ -7,22 +7,32 @@
 //
 
 import Foundation
+print("Старт программы...")
 
+print("Инициализация манипулятора...")
 var manipulator = JSONManipulator()
+print("Инициализация коллекции DataItem...")
+print("")
+let collections = DataItem.InitCollections()
+print(collections)
+print("")
+let jsonData = manipulator.packToJSON(collections)!
+print("Вид коллекции после упаковки в JSON:")
+print("")
+print(manipulator.getStringFromNSData(jsonData))
+print("")
+print("Запись данных в файл...")
+manipulator.writeFile(jsonData)
+print("Чтение из файла в строку...")
+let jsString = manipulator.readFile()
+print("Внешний вид коллекции в формате JSON после чтения из файла:")
+print("")
+print(jsString)
+print("Распаковка строки в формате JSON в коллекцию...")
+let result = manipulator.unpackJSON(jsString)
+print("")
+print("Внешний вид коллекции после распаковки:")
+print("")
+print(result)
 
-var strings = [DataItem]()
-strings.append(DataItem(name: "first_item", value: "name1"))
-strings.append(DataItem(name: "second_item", value: "name2"))
-strings.append(DataItem(name: "third_item", value: "name3"))
 
-var subStrings = [DataItem]()
-subStrings.append(DataItem(name: "sub_string_first_item", value: "name_sub_1"))
-subStrings.append(DataItem(name: "sub_string_second_item", value: "name_sub_2"))
-subStrings.append(DataItem(name: "sub_string_third_item", value: "name_sub_3"))
-
-
-var collections = [(collectionName: String, collection: [DataItem])]()
-collections.append((collectionName: "data_items", collection: strings))
-collections.append((collectionName: "sub_data_items", collection: subStrings))
-
-manipulator.writeFile(manipulator.packToJSON(collections)!)
