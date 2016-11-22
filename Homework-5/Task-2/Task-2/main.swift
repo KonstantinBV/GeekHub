@@ -9,28 +9,26 @@
 import Foundation
 print("Старт программы...")
 
-print("Инициализация манипулятора...")
-var manipulator = JSONManipulator()
-print("Инициализация коллекции DataItem...")
+var fileManager = FileManager()
+let collections = DataItemManager.GetDefaultCollections()
+print("Внешний вид коллекции до упаковки:")
 print("")
-let collections = DataItem.InitCollections()
 print(collections)
-print("")
-let jsonData = manipulator.packToJSON(collections)!
+let jsonData = DataItemManager.packToJSON(collections)!
+
 print("Вид коллекции после упаковки в JSON:")
 print("")
-print(manipulator.getStringFromNSData(jsonData))
-print("")
-print("Запись данных в файл...")
-manipulator.writeFile(jsonData)
-print("Чтение из файла в строку...")
-let jsString = manipulator.readFile()
+print(JSONManager.getStringFromNSData(jsonData))
+
+fileManager.writeFile(jsonData)
+let jsString = fileManager.readFile()
+
 print("Внешний вид коллекции в формате JSON после чтения из файла:")
 print("")
 print(jsString)
-print("Распаковка строки в формате JSON в коллекцию...")
-let result = manipulator.unpackJSON(jsString)
-print("")
+
+
+let result = DataItemManager.unpackJSON(jsString)
 print("Внешний вид коллекции после распаковки:")
 print("")
 print(result)
