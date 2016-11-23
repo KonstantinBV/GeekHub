@@ -19,6 +19,8 @@ public class WeatherManager {
             print("Error while creating URL")
             return
         }
+        var resultString: String? = ""
+        var isReaded = false
         let urlRequest = NSURLRequest(URL: url)
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
@@ -27,13 +29,16 @@ public class WeatherManager {
                 print("Error:\n\(error)")
             }
             else {
-                print("Raw data:\n\(data!)\n")
-                let dataString = String(data: data!, encoding: NSUTF8StringEncoding)
-                print("Human-readable data:\n\(dataString!)")
+                resultString = String(data: data!, encoding: NSUTF8StringEncoding)
+                isReaded = true                
             }
         })
         dataTask.resume()
-        readLine()
+        while !isReaded {
+        }
+        if let result = resultString {
+            print(result)
+        }
     }
     
 }
