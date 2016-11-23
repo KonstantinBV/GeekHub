@@ -36,16 +36,8 @@ public extension String {
     }
 }
 
-extension NSDate: Equatable {}
-
-public func == (lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs === rhs || lhs.compare(rhs) == .OrderedSame
-}
-
-public func < (lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs.compare(rhs) == .OrderedAscending
-}
- /*
+extension NSDate {
+    
     public func isGreaterThanDate(dateToCompare: NSDate) -> Bool {
         
         return self.compare(dateToCompare) == NSComparisonResult.OrderedDescending
@@ -60,5 +52,5 @@ public func < (lhs: NSDate, rhs: NSDate) -> Bool {
         
         return self.compare(dateToCompare) == NSComparisonResult.OrderedSame
     }
-}*/
+}
 

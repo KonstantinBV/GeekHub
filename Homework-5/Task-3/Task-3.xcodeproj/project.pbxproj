@@ -13,6 +13,7 @@
 		B58C27161DE4422600158B0C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C27131DE4422600158B0C /* Extensions.swift */; };
 		B58C27181DE4494300158B0C /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C27171DE4494300158B0C /* Purchase.swift */; };
 		B58C271A1DE44AC100158B0C /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C27191DE44AC100158B0C /* ShoppingList.swift */; };
+		B5D86EBD1DE58BEA006506F0 /* ShoppingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D86EBC1DE58BEA006506F0 /* ShoppingManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,7 @@
 		B58C27131DE4422600158B0C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B58C27171DE4494300158B0C /* Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		B58C27191DE44AC100158B0C /* ShoppingList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
+		B5D86EBC1DE58BEA006506F0 /* ShoppingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				B58C270A1DE441BE00158B0C /* main.swift */,
 				B58C27171DE4494300158B0C /* Purchase.swift */,
 				B58C27191DE44AC100158B0C /* ShoppingList.swift */,
+				B5D86EBC1DE58BEA006506F0 /* ShoppingManager.swift */,
 			);
 			path = "Task-3";
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 				B58C27181DE4494300158B0C /* Purchase.swift in Sources */,
 				B58C27151DE4422600158B0C /* JSONManager.swift in Sources */,
 				B58C27141DE4422600158B0C /* FileManager.swift in Sources */,
+				B5D86EBD1DE58BEA006506F0 /* ShoppingManager.swift in Sources */,
 				B58C27161DE4422600158B0C /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +263,7 @@
 				B58C27101DE441BE00158B0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

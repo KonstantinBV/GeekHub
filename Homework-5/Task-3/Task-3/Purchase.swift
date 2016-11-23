@@ -11,12 +11,16 @@ import Foundation
 public class Purchase {
     
     private var title: String = ""
-    public var date: NSData = NSData()
+    private var date: NSDate = NSDate()
     private var checked: Bool = false
     
     init() {}
     
-    init(title: String) {
+    init(_ title: String) {
+        setTitle(title)
+    }
+    
+    public func setTitle(title: String) {
         self.title = title
     }
     
@@ -24,7 +28,7 @@ public class Purchase {
         return title
     }
     
-    public func getDate() -> NSData {
+    public func getDate() -> NSDate {
         return date
     }
     
@@ -32,8 +36,16 @@ public class Purchase {
         return checked
     }
     
+    public func getCheckedInfo() -> String {
+        return checked ? "выполнено" : "не выполнено"
+    }
+    
     public func setChecked(checked: Bool) {
         self.checked = checked
+    }
+    
+    public func getInfo() -> String {
+        return "Название: \(title), дата: \(date), отметка о выполнении: \(getCheckedInfo())"
     }
     
 }

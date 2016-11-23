@@ -8,6 +8,6 @@
 
 import Foundation
 
-var shoppingList = ShoppingList()
-shoppingList.remove()
+var shoppingManager = ShoppingManager()
+shoppingManager.startShopping()
 
