@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B579B7881DE5CC7200B9C9E8 /* PurchasesJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B579B7871DE5CC7200B9C9E8 /* PurchasesJSONParser.swift */; };
 		B58C270B1DE441BE00158B0C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C270A1DE441BE00158B0C /* main.swift */; };
 		B58C27141DE4422600158B0C /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C27111DE4422600158B0C /* FileManager.swift */; };
 		B58C27151DE4422600158B0C /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C27121DE4422600158B0C /* JSONManager.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B579B7871DE5CC7200B9C9E8 /* PurchasesJSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasesJSONParser.swift; sourceTree = "<group>"; };
 		B58C27071DE441BE00158B0C /* Task-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Task-3"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58C270A1DE441BE00158B0C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B58C27111DE4422600158B0C /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				B58C27171DE4494300158B0C /* Purchase.swift */,
 				B58C27191DE44AC100158B0C /* ShoppingList.swift */,
 				B5D86EBC1DE58BEA006506F0 /* ShoppingManager.swift */,
+				B579B7871DE5CC7200B9C9E8 /* PurchasesJSONParser.swift */,
 			);
 			path = "Task-3";
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B58C270B1DE441BE00158B0C /* main.swift in Sources */,
+				B579B7881DE5CC7200B9C9E8 /* PurchasesJSONParser.swift in Sources */,
 				B58C271A1DE44AC100158B0C /* ShoppingList.swift in Sources */,
 				B58C27181DE4494300158B0C /* Purchase.swift in Sources */,
 				B58C27151DE4422600158B0C /* JSONManager.swift in Sources */,

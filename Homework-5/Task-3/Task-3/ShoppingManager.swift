@@ -25,7 +25,7 @@ public class ShoppingManager {
         if let userInput = Int(readLine()!) {
             switch userInput {
                 case 1:
-                    shoppingList.printShoppingList()
+                    shoppingList.printShoppingList(1)
                     startShopping()
                     break
                 case 2:

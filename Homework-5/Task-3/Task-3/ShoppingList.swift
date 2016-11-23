@@ -11,6 +11,11 @@ import Foundation
 public class ShoppingList {
     
     public var purchases = [Purchase]()
+    private var fileManager = FileManager()
+    
+    init() {
+        load()
+    }
     
     public func sortByDate() {
         if isPurchasesValid() {
@@ -37,12 +42,14 @@ public class ShoppingList {
     public func add(purchase: Purchase) {
         purchases.append(purchase)
         print("Запись: \(purchase.getInfo()) успешно добавлена.")
+        save()
     }
     
     public func removeAll() {
         if isPurchasesValid() {
             purchases = []
             print("Записи удалены успешно!")
+            save()
         }
     }
         
@@ -61,6 +68,7 @@ public class ShoppingList {
             if let validPurchase = find(purchase.getTitle()) {
                 purchases.removeAtIndex(validPurchase.collectionIndex)
                 print("Запись удалена успешно!")
+                save()
             }
         }
     }
@@ -122,5 +130,20 @@ public class ShoppingList {
         }
         print("Список покупок пуст.")
         return false
+    }
+    
+    private func save() {
+        let purchasesData = PurchasesJSONParser.toJSONDictionary(purchases)
+        if let jsonData = JSONManager.convertObjectToJSONData(purchasesData){
+            fileManager.writeFile(jsonData)
+        }
+    }
+    
+    private func load() {
+        if let jsonString: String = fileManager.readFile() {
+            if let tmpPurchases: [Purchase] = PurchasesJSONParser.fromJSONFormat(jsonString) {
+                purchases = tmpPurchases
+            }
+        }
     }
 }

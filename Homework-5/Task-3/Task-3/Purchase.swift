@@ -24,6 +24,14 @@ public class Purchase {
         self.title = title
     }
     
+    public func setChecked(checked: Bool) {
+        self.checked = checked
+    }
+    
+    public func setDate(date: NSDate) {
+        self.date = date
+    }
+    
     public func getTitle() -> String {
         return title
     }
@@ -40,12 +48,8 @@ public class Purchase {
         return checked ? "выполнено" : "не выполнено"
     }
     
-    public func setChecked(checked: Bool) {
-        self.checked = checked
-    }
-    
     public func getInfo() -> String {
-        return "Название: \(title), дата: \(date), отметка о выполнении: \(getCheckedInfo())"
+        return "Название: \(title), дата: \(date.dateTimeToString()), отметка о выполнении: \(getCheckedInfo())"
     }
     
 }

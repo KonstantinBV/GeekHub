@@ -34,6 +34,18 @@ public extension String {
         }
         return validCharacters.joinWithSeparator("")
     }
+    
+    public func toDateTime() -> NSDate
+    {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        let dateFromString : NSDate = dateFormatter.dateFromString(self)!
+        return dateFromString
+    }
+    
+    public func toBool() -> Bool {
+        return NSString(string: self).boolValue
+    }
 }
 
 extension NSDate {
@@ -51,6 +63,16 @@ extension NSDate {
     public func equalToDate(dateToCompare: NSDate) -> Bool {
         
         return self.compare(dateToCompare) == NSComparisonResult.OrderedSame
+    }
+    
+    public func dateTimeToString() -> String {
+        return dateStringWithFormat("yyyy-MM-dd hh:mm:ss")
+    }
+    
+    public func dateStringWithFormat(format: String) -> String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.stringFromDate(self)
     }
 }
 

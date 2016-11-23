@@ -27,6 +27,5 @@ public class JSONManager {
             print("Error writing data")
         }
         return nil
-    }
-    
+    }    
 }
