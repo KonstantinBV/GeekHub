@@ -68,8 +68,9 @@ public struct WeatherData {
     public func printInfo() {
         
         print("Погода в городе: \(name!) (долгота: \(coord.lon!), широта: \(coord.lat!))")
-        if let tTemp: Double = main.temp as? Double {
-            print("Температура: \(Int(5.0 / 9.0 * (Double(tTemp) - 32.0)))°C")
+       
+        if let temperature: Double = main.temp as? Double {
+            print("Температура: \(String(format: "%.0f", temperature - 273.15))°C")
         }
         print("Атмосферное давление: \(main.pressure!)")        
         print("Направление ветра: \(wind.deg!)°")
