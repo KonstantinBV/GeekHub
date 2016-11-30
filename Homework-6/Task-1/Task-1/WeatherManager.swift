@@ -10,35 +10,46 @@ import Foundation
 
 public class WeatherManager {
     
-    private var weatherSiteAddress = "http://api.openweathermap.org/data/2.5/weather"
-    private var apiKey = "75a5517a18cff77cd854cb3c594b1681"
+    private static let weatherSiteAddress = "http://api.openweathermap.org/data/2.5/weather"
+    private static let apiKey = "75a5517a18cff77cd854cb3c594b1681"    
     
-    public func getWeatherForCity(city: String) {
-        
-        guard let url = NSURL(string: "\(weatherSiteAddress)?APPID=\(apiKey)&q=\(city)") else {
-            print("Error while creating URL")
+    public static func getWeatherInfo() {
+        print("Введите название города на английском языке.")
+        guard let userInput = readLine() else {
+            print("Неверный формат данных.")
             return
         }
-        var resultString: String? = ""
-        var isReaded = false
+        
+        getWeatherForCity(userInput) { (result) in
+            guard let jsonString = result else {
+                print("Ошибка получения данных")
+                return
+            }
+            if let weatherData = WeatherJSONParser.fromJSONFormat(jsonString) {
+                weatherData.printInfo()
+            } else {
+                print("Ошибка конвертации данных")
+            }
+        }
+    }
+    
+    static func getWeatherForCity(city: String, completion: ((result: String?) -> ())) {
+        
+        guard let url = NSURL(string: "\(weatherSiteAddress)?APPID=\(apiKey)&q=\(city)") else {
+            print("Ошибка создания URL")
+            return
+        }
         let urlRequest = NSURLRequest(URL: url)
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
         let dataTask = session.dataTaskWithRequest(urlRequest, completionHandler: { (data, response, error) in
             if let error = error {
-                print("Error:\n\(error)")
+                print("Ошибка:\n\(error)")
             }
             else {
-                resultString = String(data: data!, encoding: NSUTF8StringEncoding)
-                isReaded = true                
+                completion(result: String(data: data!, encoding: NSUTF8StringEncoding))
             }
         })
         dataTask.resume()
-        while !isReaded {
-        }
-        if let result = resultString {
-            print(result)
-        }
     }
-    
 }

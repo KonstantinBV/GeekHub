@@ -8,6 +8,5 @@
 
 import Foundation
 
-let weatherManager = WeatherManager()
-weatherManager.getWeatherForCity("Moscov")
-
+WeatherManager.getWeatherInfo()
+readLine()

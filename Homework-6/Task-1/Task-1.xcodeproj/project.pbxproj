@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5F51D461DEEF56E0042CBBE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51D431DEEF56E0042CBBE /* Extensions.swift */; };
+		B5F51D481DEEF56E0042CBBE /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51D451DEEF56E0042CBBE /* JSONManager.swift */; };
+		B5F51D4A1DEF11BA0042CBBE /* WeatherJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51D491DEF11BA0042CBBE /* WeatherJSONParser.swift */; };
+		B5F51D4C1DEF122A0042CBBE /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F51D4B1DEF122A0042CBBE /* WeatherData.swift */; };
 		B5FE9F791DE60A0500BE282B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FE9F781DE60A0500BE282B /* main.swift */; };
 		B5FE9F801DE60DB600BE282B /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FE9F7F1DE60DB600BE282B /* WeatherManager.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +28,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B5F51D431DEEF56E0042CBBE /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B5F51D451DEEF56E0042CBBE /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
+		B5F51D491DEF11BA0042CBBE /* WeatherJSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherJSONParser.swift; sourceTree = "<group>"; };
+		B5F51D4B1DEF122A0042CBBE /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		B5FE9F751DE60A0500BE282B /* Task-1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Task-1"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FE9F781DE60A0500BE282B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B5FE9F7F1DE60DB600BE282B /* WeatherManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
@@ -59,8 +67,12 @@
 		B5FE9F771DE60A0500BE282B /* Task-1 */ = {
 			isa = PBXGroup;
 			children = (
+				B5F51D431DEEF56E0042CBBE /* Extensions.swift */,
+				B5F51D451DEEF56E0042CBBE /* JSONManager.swift */,
 				B5FE9F781DE60A0500BE282B /* main.swift */,
 				B5FE9F7F1DE60DB600BE282B /* WeatherManager.swift */,
+				B5F51D491DEF11BA0042CBBE /* WeatherJSONParser.swift */,
+				B5F51D4B1DEF122A0042CBBE /* WeatherData.swift */,
 			);
 			path = "Task-1";
 			sourceTree = "<group>";
@@ -123,7 +135,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5FE9F801DE60DB600BE282B /* WeatherManager.swift in Sources */,
+				B5F51D4A1DEF11BA0042CBBE /* WeatherJSONParser.swift in Sources */,
+				B5F51D461DEEF56E0042CBBE /* Extensions.swift in Sources */,
 				B5FE9F791DE60A0500BE282B /* main.swift in Sources */,
+				B5F51D481DEEF56E0042CBBE /* JSONManager.swift in Sources */,
+				B5F51D4C1DEF122A0042CBBE /* WeatherData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +259,7 @@
 				B5FE9F7E1DE60A0500BE282B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
