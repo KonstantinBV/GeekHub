@@ -8,5 +8,5 @@
 
 import Foundation
 
-print("Hello, World!")
-
+var personsGenerator = PersonsGenerator(americansCount: 20, mexicansCount: 30)
+personsGenerator.generatePersons()

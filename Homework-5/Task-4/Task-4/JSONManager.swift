@@ -11,10 +11,12 @@ import Foundation
 public class JSONManager {
     
     public static func getStringFromNSData(data: NSData?) -> String {
+        
         if let str = String(data: data!, encoding: NSUTF8StringEncoding) {
             return str
         }
         return ""
+        
     }
     
     public static func convertObjectToJSONData(data:AnyObject) -> NSData? {
@@ -27,5 +29,18 @@ public class JSONManager {
             print("Error writing data")
         }
         return nil
-    }    
+        
+    }
+    
+    public static func getFromNSData(jsonData: NSData) -> AnyObject? {
+        
+        do {
+            return try NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
+            
+        } catch {
+            print("Ошибка обработки данных JSON.")
+        }
+        return nil
+    }
+    
 }

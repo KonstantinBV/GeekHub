@@ -17,7 +17,9 @@ public class FrontierGuard: Person {
     public var sex: Sex?
     
     public func getInfo() -> String {
-        return ""
+        
+        return "Name: \(name) \(surname)\r\nBirthday: \(birthday);\r\nSex: \(sex!);\r\nCountry: \(bornInTheCountry!) \r\n"
+        
     }
     
 }

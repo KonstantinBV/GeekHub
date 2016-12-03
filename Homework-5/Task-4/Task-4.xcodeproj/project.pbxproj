@@ -7,24 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B56AD3C01DF2D51A0048B414 /* names_female.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5FE427C1DF2213800452A17 /* names_female.json */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B56AD3C11DF2D51E0048B414 /* names_male.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5FE427D1DF2213800452A17 /* names_male.json */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		B56AD3C21DF2D5230048B414 /* surnames.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5CC27CD1DF2C800005DC934 /* surnames.json */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		B5729F6C1DF2047800E6664C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5729F6B1DF2047800E6664C /* main.swift */; };
 		B5729F731DF2055900E6664C /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5729F721DF2055900E6664C /* Person.swift */; };
 		B5729F751DF208FE00E6664C /* Citizen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5729F741DF208FE00E6664C /* Citizen.swift */; };
 		B5729F771DF2099F00E6664C /* FrontierGuard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5729F761DF2099F00E6664C /* FrontierGuard.swift */; };
-		B5729F791DF20F7E00E6664C /* NameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5729F781DF20F7E00E6664C /* NameGenerator.swift */; };
-		B5729F7C1DF2163D00E6664C /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5729F7A1DF2163D00E6664C /* FileManager.swift */; };
 		B5729F7D1DF2163D00E6664C /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5729F7B1DF2163D00E6664C /* JSONManager.swift */; };
+		B5BA75241DF2EC15005531C3 /* PersonNameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA75231DF2EC15005531C3 /* PersonNameGenerator.swift */; };
+		B5BA75261DF2F111005531C3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA75251DF2F111005531C3 /* Extensions.swift */; };
+		B5BA75281DF3050A005531C3 /* PersonsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA75271DF3050A005531C3 /* PersonsGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		B5729F661DF2047800E6664C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 7;
 			files = (
+				B56AD3C21DF2D5230048B414 /* surnames.json in CopyFiles */,
+				B56AD3C11DF2D51E0048B414 /* names_male.json in CopyFiles */,
+				B56AD3C01DF2D51A0048B414 /* names_female.json in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -34,12 +41,13 @@
 		B5729F721DF2055900E6664C /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		B5729F741DF208FE00E6664C /* Citizen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Citizen.swift; sourceTree = "<group>"; };
 		B5729F761DF2099F00E6664C /* FrontierGuard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontierGuard.swift; sourceTree = "<group>"; };
-		B5729F781DF20F7E00E6664C /* NameGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameGenerator.swift; sourceTree = "<group>"; };
-		B5729F7A1DF2163D00E6664C /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		B5729F7B1DF2163D00E6664C /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
+		B5BA75231DF2EC15005531C3 /* PersonNameGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonNameGenerator.swift; sourceTree = "<group>"; };
+		B5BA75251DF2F111005531C3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B5BA75271DF3050A005531C3 /* PersonsGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonsGenerator.swift; sourceTree = "<group>"; };
+		B5CC27CD1DF2C800005DC934 /* surnames.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = surnames.json; sourceTree = "<group>"; };
 		B5FE427C1DF2213800452A17 /* names_female.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = names_female.json; sourceTree = "<group>"; };
 		B5FE427D1DF2213800452A17 /* names_male.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = names_male.json; sourceTree = "<group>"; };
-		B5FE427E1DF2213800452A17 /* surnames.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = surnames.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,14 +82,15 @@
 			children = (
 				B5FE427C1DF2213800452A17 /* names_female.json */,
 				B5FE427D1DF2213800452A17 /* names_male.json */,
-				B5FE427E1DF2213800452A17 /* surnames.json */,
-				B5729F7A1DF2163D00E6664C /* FileManager.swift */,
-				B5729F7B1DF2163D00E6664C /* JSONManager.swift */,
+				B5CC27CD1DF2C800005DC934 /* surnames.json */,
 				B5729F6B1DF2047800E6664C /* main.swift */,
 				B5729F721DF2055900E6664C /* Person.swift */,
 				B5729F741DF208FE00E6664C /* Citizen.swift */,
 				B5729F761DF2099F00E6664C /* FrontierGuard.swift */,
-				B5729F781DF20F7E00E6664C /* NameGenerator.swift */,
+				B5BA75271DF3050A005531C3 /* PersonsGenerator.swift */,
+				B5BA75231DF2EC15005531C3 /* PersonNameGenerator.swift */,
+				B5BA75251DF2F111005531C3 /* Extensions.swift */,
+				B5729F7B1DF2163D00E6664C /* JSONManager.swift */,
 			);
 			path = "Task-4";
 			sourceTree = "<group>";
@@ -146,10 +155,11 @@
 				B5729F731DF2055900E6664C /* Person.swift in Sources */,
 				B5729F7D1DF2163D00E6664C /* JSONManager.swift in Sources */,
 				B5729F751DF208FE00E6664C /* Citizen.swift in Sources */,
-				B5729F791DF20F7E00E6664C /* NameGenerator.swift in Sources */,
-				B5729F7C1DF2163D00E6664C /* FileManager.swift in Sources */,
+				B5BA75261DF2F111005531C3 /* Extensions.swift in Sources */,
 				B5729F771DF2099F00E6664C /* FrontierGuard.swift in Sources */,
+				B5BA75241DF2EC15005531C3 /* PersonNameGenerator.swift in Sources */,
 				B5729F6C1DF2047800E6664C /* main.swift in Sources */,
+				B5BA75281DF3050A005531C3 /* PersonsGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
