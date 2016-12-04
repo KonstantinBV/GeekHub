@@ -8,5 +8,7 @@
 
 import Foundation
 
-var personsGenerator = PersonsGenerator(americansCount: 20, mexicansCount: 30)
-personsGenerator.generatePersons()
+let border = Border()
+if border.migrateCitizens() {
+    border.showStatistics()
+}

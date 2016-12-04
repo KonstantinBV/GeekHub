@@ -20,6 +20,8 @@ public class PersonsGenerator {
     private var mexicoCitizens = [Citizen]()
     private var frontierGuards = [FrontierGuard]()
     
+    public var isEmpty: Bool { return usaCitizens.count == 0 || mexicoCitizens.count == 0 || frontierGuards.count == 0 }
+    
     init(americansCount: Int, mexicansCount: Int) {
         
         usaCitizensCount = americansCount
@@ -30,10 +32,30 @@ public class PersonsGenerator {
     public func generatePersons() {
         
         personNameGenerator.loadData()
+        print("Начало процесса генерации данных. Пожалуйста подождите...")
         generateAmericans()
         generateMexicans()
         generateFrontierGuards()
+        print("Процес генерации данных завершен.")
         personNameGenerator.clearData()
+        
+    }
+    
+    public func getAmericans() -> [Citizen] {
+        
+        return usaCitizens
+        
+    }
+    
+    public func getMexicans() -> [Citizen] {
+        
+        return mexicoCitizens
+        
+    }
+    
+    public func getFrontierGuards() -> [FrontierGuard] {
+        
+        return frontierGuards
         
     }
     
@@ -46,9 +68,7 @@ public class PersonsGenerator {
             american.birthday = NSDate.randomBetweenDates()
             american.sex = Sex.randomSex()
             personNameGenerator.setRandomName(american)
-            
             usaCitizens.append(american)
-            //print(american.getInfo())
         
         } while usaCitizens.count < usaCitizensCount
         
@@ -63,18 +83,14 @@ public class PersonsGenerator {
             mexican.birthday = NSDate.randomBetweenDates()
             mexican.sex = Sex.randomSex()
             personNameGenerator.setRandomName(mexican)
-            
             mexicoCitizens.append(mexican)
-            //print(mexican.getInfo())
             
         } while mexicoCitizens.count < mexicoCitizensCount
         
     }
     
     private func generateFrontierGuards() {
-        /*print("================")
-        print("Frontier guards")
-        print("================")*/
+        
         repeat {
             
             let frontierGuard = FrontierGuard()
@@ -82,9 +98,7 @@ public class PersonsGenerator {
             frontierGuard.birthday = NSDate.randomBetweenDates()
             frontierGuard.sex = Sex.randomSex()
             personNameGenerator.setRandomName(frontierGuard)
-            
             frontierGuards.append(frontierGuard)
-            //print(frontierGuard.getInfo())
             
         } while frontierGuards.count < frontierGuardsCount
         

@@ -13,18 +13,36 @@ public enum CriminalOffense: UInt32 {
     case HasWeapon = 0, HasDrugs = 1, HasProhibitedItems = 2, Wanted = 3, CriminalPast = 4
     
     static func randomCriminalOffense() -> CriminalOffense {
-        
-        let minIndex = CriminalOffense.HasWeapon.rawValue
-        let maxIndex = CriminalOffense.CriminalPast.rawValue
-        
-        let rand = arc4random_uniform(UInt32(maxIndex - minIndex)) + UInt32(minIndex)
+       
+        let range: Range<Int> = Range(Int(CriminalOffense.HasWeapon.rawValue)...Int(CriminalOffense.CriminalPast.rawValue))
+        let rand = UInt32(range.getRandomInt())
         return CriminalOffense(rawValue: rand)!
+        
+    }
+    
+    func toString() -> String {
+        
+        switch self {
+        case .HasWeapon:
+            return "Имеет оружие"
+        case .HasDrugs:
+            return "Имеет наркотики"
+        case .HasProhibitedItems:
+            return "Имеет запрещенные предметы"
+        case .Wanted:
+            return "Находится в розыске"
+        case .CriminalPast:
+            return "Имеет криминальное прошлое"
+        }
         
     }
     
 }
 
 public class Citizen: Person {
+    
+    private let criminalOffenseChance = 4
+    
     
     public var name: String = ""
     public var surname: String  =  ""
@@ -34,10 +52,20 @@ public class Citizen: Person {
     public var criminalOffense: CriminalOffense?
     public var lawAbiding: Bool { return criminalOffense == nil }
     public var crossedTheBorder = false
+    public var arrested = false
+    
+    init() {
+        
+        if ProbabilityGenerator.isItPossible(criminalOffenseChance) {
+            criminalOffense = CriminalOffense.randomCriminalOffense()
+        }
+        
+    }
     
     public func getInfo() -> String {
         
-        return "Name: \(name) \(surname)\r\nBirthday: \(birthday);\r\nSex: \(sex!);\r\nCountry: \(bornInTheCountry!) \r\n"
+        return "Имя: \(name) \(surname)\r\nДата рождения: \(birthday);" +
+        "\r\nПол: \(sex!);\r\nСтрана: \(bornInTheCountry!);\r\nУголовное преступление: \(criminalOffense == nil ? "Отсутствует" : criminalOffense!.toString())"
         
     }
     
