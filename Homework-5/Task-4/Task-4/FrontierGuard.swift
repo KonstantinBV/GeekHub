@@ -13,7 +13,7 @@ public class FrontierGuard: Person {
     private static let minSkillLevel: Int = 10
     private static let maxSkillLevel: Int = 80
     
-    private let skillRange: Range<Int> = Range(minSkillLevel...maxSkillLevel)
+    private let skillChances = Range(minSkillLevel...maxSkillLevel)
     
     public var name: String = ""
     public var surname: String  =  ""
@@ -26,17 +26,13 @@ public class FrontierGuard: Person {
     
     init() {
         
-        skill = skillRange.getRandomInt()
+        skill = skillChances.getRandomInt()
         
     }
     
-    public func citizenIsCriminal(citizen: Citizen) -> Bool {
+    public func checkCitizenOnCriminal(citizen: Citizen) -> Bool {
         
-        if citizen.lawAbiding {
-            return false
-        }
-        
-        if ProbabilityGenerator.isItPossible(skill) {
+        if citizen.isCriminal && MagicBall.isItPossible(skill) {
             arrestedCriminals += 1
             return true
         }
@@ -50,6 +46,24 @@ public class FrontierGuard: Person {
         return "Имя: \(name) \(surname)\r\nДата рождения: \(birthday);" +
             "\r\nПол: \(sex!);\r\nСтрана: \(bornInTheCountry!);" +
             "\r\nНавык обыска: \(skill);\r\nЗадержано преступников: \(arrestedCriminals)"
+        
+    }
+    
+    public func getName() -> String {
+        
+        return "\(name) \(surname)"
+        
+    }
+    
+    public func getInfoForReport() -> String {
+        
+        return "Пограничником " + getName() + " задержано преступников: \(arrestedCriminals)"
+        
+    }
+    
+    public func getArrestedCriminalsCount() -> Int {
+        
+        return arrestedCriminals
         
     }
     

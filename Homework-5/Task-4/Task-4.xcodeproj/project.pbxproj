@@ -18,7 +18,7 @@
 		B5BA75241DF2EC15005531C3 /* PersonNameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA75231DF2EC15005531C3 /* PersonNameGenerator.swift */; };
 		B5BA75261DF2F111005531C3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA75251DF2F111005531C3 /* Extensions.swift */; };
 		B5BA75281DF3050A005531C3 /* PersonsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA75271DF3050A005531C3 /* PersonsGenerator.swift */; };
-		B5C508D01DF410BF00A5A535 /* ProbabilityGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C508CF1DF410BF00A5A535 /* ProbabilityGenerator.swift */; };
+		B5C508D01DF410BF00A5A535 /* MagicBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C508CF1DF410BF00A5A535 /* MagicBall.swift */; };
 		B5C508D41DF4123100A5A535 /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C508D31DF4123100A5A535 /* Border.swift */; };
 		B5C508D61DF4761200A5A535 /* CountryBorderReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C508D51DF4761200A5A535 /* CountryBorderReport.swift */; };
 /* End PBXBuildFile section */
@@ -48,7 +48,7 @@
 		B5BA75231DF2EC15005531C3 /* PersonNameGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonNameGenerator.swift; sourceTree = "<group>"; };
 		B5BA75251DF2F111005531C3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B5BA75271DF3050A005531C3 /* PersonsGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonsGenerator.swift; sourceTree = "<group>"; };
-		B5C508CF1DF410BF00A5A535 /* ProbabilityGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProbabilityGenerator.swift; sourceTree = "<group>"; };
+		B5C508CF1DF410BF00A5A535 /* MagicBall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicBall.swift; sourceTree = "<group>"; };
 		B5C508D31DF4123100A5A535 /* Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
 		B5C508D51DF4761200A5A535 /* CountryBorderReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryBorderReport.swift; sourceTree = "<group>"; };
 		B5CC27CD1DF2C800005DC934 /* surnames.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = surnames.json; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 			children = (
 				B5BA75271DF3050A005531C3 /* PersonsGenerator.swift */,
 				B5BA75231DF2EC15005531C3 /* PersonNameGenerator.swift */,
-				B5C508CF1DF410BF00A5A535 /* ProbabilityGenerator.swift */,
+				B5C508CF1DF410BF00A5A535 /* MagicBall.swift */,
 			);
 			name = Generators;
 			sourceTree = "<group>";
@@ -183,7 +183,7 @@
 				B5729F7D1DF2163D00E6664C /* JSONManager.swift in Sources */,
 				B5729F751DF208FE00E6664C /* Citizen.swift in Sources */,
 				B5BA75261DF2F111005531C3 /* Extensions.swift in Sources */,
-				B5C508D01DF410BF00A5A535 /* ProbabilityGenerator.swift in Sources */,
+				B5C508D01DF410BF00A5A535 /* MagicBall.swift in Sources */,
 				B5729F771DF2099F00E6664C /* FrontierGuard.swift in Sources */,
 				B5BA75241DF2EC15005531C3 /* PersonNameGenerator.swift in Sources */,
 				B5729F6C1DF2047800E6664C /* main.swift in Sources */,

@@ -32,7 +32,7 @@ public class PersonsGenerator {
     public func generatePersons() {
         
         personNameGenerator.loadData()
-        print("Начало процесса генерации данных. Пожалуйста подождите...")
+        print("Старт процесса генерации данных. Пожалуйста подождите...")
         generateAmericans()
         generateMexicans()
         generateFrontierGuards()

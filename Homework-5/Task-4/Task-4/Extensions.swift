@@ -12,7 +12,7 @@ public extension NSArray {
     
     public func getRandomItem() -> AnyObject? {
         
-        return self.count == 0 ? nil : self[(self.count - 1).getRandom()]
+        return self.count == 0 ? nil : self[(self.count).getRandom()]
         
     }
     
@@ -116,4 +116,12 @@ public extension NSDate {
         return rndDate1
         
     }
+}
+
+extension Double {
+    
+    func fixedFractionDigits(digits: Int) -> String {
+        return String(format: "%.\(digits)f", self)
+    }
+    
 }

@@ -41,7 +41,7 @@ public enum CriminalOffense: UInt32 {
 
 public class Citizen: Person {
     
-    private let criminalOffenseChance = 4
+    private let criminalOffenseChances = Range(0...4)
     
     
     public var name: String = ""
@@ -50,13 +50,13 @@ public class Citizen: Person {
     public var bornInTheCountry: Country?
     public var sex: Sex?
     public var criminalOffense: CriminalOffense?
-    public var lawAbiding: Bool { return criminalOffense == nil }
+    public var isCriminal: Bool { return criminalOffense != nil }
     public var crossedTheBorder = false
     public var arrested = false
     
     init() {
         
-        if ProbabilityGenerator.isItPossible(criminalOffenseChance) {
+        if MagicBall.isItPossible(criminalOffenseChances) {
             criminalOffense = CriminalOffense.randomCriminalOffense()
         }
         

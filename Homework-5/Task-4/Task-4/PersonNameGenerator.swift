@@ -18,7 +18,7 @@ public class PersonNameGenerator {
     
     public func loadData() -> Bool {
         
-        print("Начало загрузки информации из файлов с именами...")
+        print("Старт загрузки информации из файлов с именами...")
         
         namesMale = getFromJson("names_male")
         namesFemale = getFromJson("names_female")

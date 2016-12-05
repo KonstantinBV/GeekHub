@@ -9,41 +9,57 @@
 import Foundation
 
 public class Border {
-    
-    //public var personsGenerator: PersonsGenerator = PersonsGenerator(americansCount: 0, mexicansCount: 0)
-    
+       
     private var prison = [Citizen]()
     private var usa = [Citizen]()
     private var mexico = [Citizen]()
     private var frontierGuards = [FrontierGuard]()
-    private var personsGenerator: PersonsGenerator = PersonsGenerator(americansCount: 0, mexicansCount: 0)
+    private var personsGenerator: PersonsGenerator?
     
     public func migrateCitizens() -> Bool {
         
        if !generatePersons() {
             return false
-        }        
+        }
         
+        var americansTriedHisLuck = 0
+        var mexicansTriedHisLuck = 0
+        
+        let americansCount = personsGenerator!.getAmericans().count
+        let mexicansCount = personsGenerator!.getMexicans().count
+        
+        print("Старт процесса миграции. Пожалуйста подождите...")
         while true {
             switch Country.randomCountry() {
                 case Country.USA:
-                   crossTheBorder(&usa, countryTo: &mexico)
+                    if crossTheBorder(&usa, countryTo: &mexico) {
+                        americansTriedHisLuck += 1
+                    }
                 break
             case Country.Mexico:
-                crossTheBorder(&mexico, countryTo: &usa)
+                if crossTheBorder(&mexico, countryTo: &usa) {
+                    mexicansTriedHisLuck += 1
+                }
                 break
             }
-            if getMigrantIndex(usa) == nil && getMigrantIndex(mexico) == nil {
-                break
+            if americansTriedHisLuck == americansCount && mexicansTriedHisLuck == mexicansCount {
+                    break
             }
         }
+        print("Процесс миграции завершен.")
         return true
     }
     
     
     public func showStatistics() {
         
-        print("Количество граждан пересекших границу: \(usa.count + mexico.count)")
+        guard let validGenerator = personsGenerator else {
+            print("Ошибка формирования отчета. Генератор лиц не обнаружен.")
+            return
+        }
+        
+        let report = CountryBorderReport(validGenerator)
+        report.showStatictics()
         
     }
     
@@ -54,47 +70,47 @@ public class Border {
             print("Ошибка! Неверный формат данных.")
             return false
         }
-        print("Введите количество граждан проживающих на територии Мексики")
+        print("Введите количество граждан проживающих на территории Мексики")
         guard let mexicansCount: Int = Int(readLine()!) else {
             print("Ошибка! Неверный формат данных.")            
             return false
         }
-        personsGenerator = PersonsGenerator(americansCount: americansCount, mexicansCount: mexicansCount)
-        personsGenerator.generatePersons()
         
-        if !personsGenerator.isEmpty {
-            usa = personsGenerator.getAmericans()
-            mexico = personsGenerator.getMexicans()
-            frontierGuards = personsGenerator.getFrontierGuards()
+        personsGenerator = PersonsGenerator(americansCount: americansCount, mexicansCount: mexicansCount)
+        guard let validPersonsGenerator = personsGenerator else {
+            return false
+        }        
+        
+        validPersonsGenerator.generatePersons()
+        
+        if !validPersonsGenerator.isEmpty {
+            usa = validPersonsGenerator.getAmericans()
+            mexico = validPersonsGenerator.getMexicans()
+            frontierGuards = validPersonsGenerator.getFrontierGuards()
         }
         
         return true
         
     }
     
-    private func crossTheBorder(inout countryFrom:[Citizen], inout countryTo: [Citizen]) {
+    private func crossTheBorder(inout countryFrom:[Citizen], inout countryTo: [Citizen]) -> Bool {
         
         if countryFrom.count == 0 {
-            return
+            return false
         }
-        
-        while true {
-            
-            guard let migrantIndex = getMigrantIndex(countryFrom) else {
-                break
-            }
-            
-            let citizen = countryFrom.removeAtIndex(migrantIndex)
-            
-            let frontierGuard = (frontierGuards as NSArray).getRandomItem() as! FrontierGuard
-            if frontierGuard.citizenIsCriminal(citizen) {
-                citizen.arrested = true
-                prison.append(citizen)
-            } else {
-                citizen.crossedTheBorder = true
-                countryTo.append(citizen)
-            }
+        guard let migrantIndex = getMigrantIndex(countryFrom) else {
+            return false
         }
+        let citizen = countryFrom.removeAtIndex(migrantIndex)
+        let frontierGuard = (frontierGuards as NSArray).getRandomItem() as! FrontierGuard
+        if frontierGuard.checkCitizenOnCriminal(citizen) {
+            citizen.arrested = true
+            prison.append(citizen)
+        } else {
+            citizen.crossedTheBorder = true
+            countryTo.append(citizen)
+        }
+        return true
         
     }
     
