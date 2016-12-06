@@ -18,7 +18,7 @@ public class Border {
     
     public func migrateCitizens() -> Bool {
         
-       if !generatePersons() {
+        if !generatePersons() {
             return false
         }
         
@@ -29,12 +29,12 @@ public class Border {
         let mexicansCount = personsGenerator!.getMexicans().count
         
         print("Старт процесса миграции. Пожалуйста подождите...")
-        while true {
+        while americansTriedHisLuck < americansCount || mexicansTriedHisLuck < mexicansCount {
             switch Country.randomCountry() {
-                case Country.USA:
-                    if crossTheBorder(&usa, countryTo: &mexico) {
-                        americansTriedHisLuck += 1
-                    }
+            case Country.USA:
+                if crossTheBorder(&usa, countryTo: &mexico) {
+                    americansTriedHisLuck += 1
+                }
                 break
             case Country.Mexico:
                 if crossTheBorder(&mexico, countryTo: &usa) {
@@ -42,14 +42,10 @@ public class Border {
                 }
                 break
             }
-            if americansTriedHisLuck == americansCount && mexicansTriedHisLuck == mexicansCount {
-                    break
-            }
         }
         print("Процесс миграции завершен.")
         return true
-    }
-    
+    }    
     
     public func showStatistics() {
         
