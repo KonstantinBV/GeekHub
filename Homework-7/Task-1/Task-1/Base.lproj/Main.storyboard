@@ -63,8 +63,8 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="OnButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rbZ-gv-YPU"/>
-                                            <action selector="OnResultClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lLM-v1-jVc"/>
+                                            <action selector="OnButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yyB-mz-qVv"/>
+                                            <action selector="OnResultClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Je-XR-a2d"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXb-9q-6IU">
@@ -187,19 +187,6 @@
                                             <action selector="OnResultClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iGA-bL-RUQ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVT-cB-fJr">
-                                        <rect key="frame" x="281" y="115" width="92" height="113"/>
-                                        <animations/>
-                                        <color key="backgroundColor" red="1" green="0.65522022550000003" blue="0.2091860083" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="26"/>
-                                        <state key="normal" title="×">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="OnButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RZW-Y4-ucg"/>
-                                            <action selector="OnResultClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VcY-Qj-JfB"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5B1-4Y-qOw">
                                         <rect key="frame" x="281" y="229" width="92" height="112"/>
                                         <animations/>
@@ -209,8 +196,8 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="OnButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QhJ-jc-Pls"/>
-                                            <action selector="OnResultClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dfg-sg-Efb"/>
+                                            <action selector="OnButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ksP-ss-sac"/>
+                                            <action selector="OnResultClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gyu-mZ-ksD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOq-Td-V90">
@@ -222,8 +209,8 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="OnButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1TE-eM-dxi"/>
-                                            <action selector="OnResultClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Ex-yb-Urb"/>
+                                            <action selector="OnButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ed3-ed-Iqr"/>
+                                            <action selector="OnResultClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HtF-p7-2wz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXq-mH-NdE">
@@ -247,8 +234,8 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="OnButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nQR-cv-JkE"/>
-                                            <action selector="OnResultClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qqn-MQ-J34"/>
+                                            <action selector="OnButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eTD-EH-saD"/>
+                                            <action selector="OnResultClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3RL-vZ-kgU"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVD-0m-ECi">
@@ -261,6 +248,19 @@
                                         </state>
                                         <connections>
                                             <action selector="OnButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9QL-YD-uel"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVT-cB-fJr">
+                                        <rect key="frame" x="281" y="115" width="92" height="113"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="1" green="0.65522022550000003" blue="0.2091860083" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="26"/>
+                                        <state key="normal" title="×">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="OnButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L5V-B7-CFq"/>
+                                            <action selector="OnResultClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ojF-3I-7C9"/>
                                         </connections>
                                     </button>
                                 </subviews>

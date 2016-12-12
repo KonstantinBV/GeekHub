@@ -37,6 +37,10 @@ class ViewController: UIViewController {
     //MARK: Actions
 
     @IBAction func OnButtonPressed(sender: UIButton) {
+        if ValidOperations.isOperation(sender.currentTitle!){
+            let calc = calculator.getResult(false)
+            mainTextValue = calculator.getDisplayText("\(calc)")
+        }
         if lbMainText.text!.characters.count < 20 {
             mainTextValue = calculator.getDisplayText(sender.currentTitle!)
         }
@@ -49,7 +53,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func OnResultClick(sender: UIButton) {
-        mainTextValue = calculator.getResult()
+        mainTextValue = calculator.getResult(sender.currentTitle! == "=")
     }
     
     @IBAction func OnPlusMinusPressed(sender: UIButton) {

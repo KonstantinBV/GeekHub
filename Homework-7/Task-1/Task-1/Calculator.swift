@@ -8,6 +8,23 @@
 
 import Foundation
 
+public enum ValidOperations: String {
+    
+    case sum = "+", subtraction = "-",
+    multiplication = "×", division = "÷", percentage = "%"
+    
+    private static let allValues = [sum, subtraction, multiplication, division, percentage]
+    
+    public static func isOperation(input: String) -> Bool {
+        for enumVal in ValidOperations.allValues {
+            if enumVal.rawValue == input {
+                return true
+            }
+        }
+        return false
+    }
+}
+
 public class Calculator {
     
     //MARK: Structs
@@ -15,18 +32,9 @@ public class Calculator {
     private struct Manipulator {
         var input = ""
         var firstNumber = 0.0
-        var operand: validOperations?
+        var operand: ValidOperations?
         var secondNumber = 0.0
         var isEmpty: Bool { return input.isEmpty && firstNumber == 0 && operand == nil && secondNumber == 0 }
-    }
-    
-    //MARK: Enums
-    
-    private enum validOperations: String {
-        
-        case sum = "+", subtraction = "-",
-        multiplication = "✕", division = "÷", percentage = "%"
-        
     }
     
     //MARK: Properties
@@ -35,7 +43,7 @@ public class Calculator {
     
     //MARK: Public Functions
     
-    public func getResult() -> Double {
+    public func getResult(isEqualsPressed: Bool) -> Double {
         
         if manipulator.isEmpty || (manipulator.input.isEmpty && manipulator.firstNumber == 0) {
             return 0
@@ -49,15 +57,15 @@ public class Calculator {
         
         var result:Double = 0
         switch manipulator.operand! {
-            case validOperations.sum:
+            case ValidOperations.sum:
                 result = calculate{$0 + $1}
-            case validOperations.subtraction:
+            case ValidOperations.subtraction:
                 result = calculate{$0 - $1}
-            case validOperations.multiplication:
+            case ValidOperations.multiplication:
                 result = calculate{$0 * $1}
-            case validOperations.division:
+            case ValidOperations.division:
                 result = calculate{$0 / $1}
-            case validOperations.percentage:
+            case ValidOperations.percentage:
                 if manipulator.firstNumber == 0 {
                     result = Double(manipulator.input)! / 100.0
                 } else {
@@ -65,7 +73,17 @@ public class Calculator {
                     result = Double(manipulator.input)!
                 }
         }
-        manipulator.input = "\(result)"
+        
+        if isEqualsPressed {
+            clear()
+            manipulator.input = "\(result)"
+        } else {
+            manipulator.input = ""
+            manipulator.firstNumber = result
+            manipulator.secondNumber = 0
+        }
+        
+        
         return result
         
     }
@@ -73,20 +91,20 @@ public class Calculator {
     public func getDisplayText(input: String) -> Double {
         
         guard let _ = Double(input) else {
-            if manipulator.input.isEmpty {
+            if manipulator.firstNumber == 0 && manipulator.input.isEmpty {
                 return 0
             }
             switch input {
-            case validOperations.sum.rawValue:
-                manipulator.operand = validOperations.sum
-            case validOperations.subtraction.rawValue:
-                manipulator.operand = validOperations.subtraction
-            case validOperations.multiplication.rawValue:
-                manipulator.operand = validOperations.multiplication
-            case validOperations.division.rawValue:
-                manipulator.operand = validOperations.division
-            case validOperations.percentage.rawValue:
-                manipulator.operand = validOperations.percentage
+            case ValidOperations.sum.rawValue:
+                manipulator.operand = ValidOperations.sum
+            case ValidOperations.subtraction.rawValue:
+                manipulator.operand = ValidOperations.subtraction
+            case ValidOperations.multiplication.rawValue:
+                manipulator.operand = ValidOperations.multiplication
+            case ValidOperations.division.rawValue:
+                manipulator.operand = ValidOperations.division
+            case ValidOperations.percentage.rawValue:
+                manipulator.operand = ValidOperations.percentage
             default: break
             }
             if manipulator.firstNumber == 0 {
@@ -110,9 +128,8 @@ public class Calculator {
     //MARK: Private Functions
     
     private func calculate(operation: (Double, Double) -> Double) -> Double {
-        let result = operation(manipulator.firstNumber, manipulator.secondNumber)
-        clear()
-        manipulator.input = "\(result)"
-        return result
+        
+        return operation(manipulator.firstNumber, manipulator.secondNumber)
+        
     }
 }
