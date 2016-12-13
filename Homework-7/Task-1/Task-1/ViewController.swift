@@ -17,18 +17,6 @@ class ViewController: UIViewController {
         case plus = "+", minus = "-",
         multiplication = "×", division = "÷", percentage = "%"
         
-        private static let allValues = [plus, minus, multiplication, division, percentage]
-        
-        static func isOperation(input: String) -> Bool {
-            
-            for enumVal in allValues {
-                if enumVal.rawValue == input {
-                    return true
-                }
-            }
-            return false
-        }
-
     }
 
     //MARK: Properties
@@ -58,12 +46,12 @@ class ViewController: UIViewController {
     
     private var firstValue = 0.0
     private var secondValue = 0.0
-    private var onOperationsPressedCount = 0
     private var operation = ""
     
     private var isTyping = false
     private var decimalIsPressed = false
     private var isPlusMinusPressed = false
+    private var onPercentagePressed = false
     
     //MARK: Actions
 
@@ -87,22 +75,13 @@ class ViewController: UIViewController {
     @IBAction func onOperationPressed(sender: UIButton) {
         
         let operation = sender.currentTitle!
-        if operation == Operations.percentage.rawValue {
-            if firstValue == 0 {
-                displayValue = 0
-            } else {
-                displayValue = firstValue * displayValue / 100
-                firstValue = 0
-            }
-        } else {
-            /*onOperationsPressedCount += 1
-            if isTyping && onOperationsPressedCount == 1 {
-                onResultPressed()
-            }*/
+        onPercentagePressed = operation == Operations.percentage.rawValue
+        if isTyping {
             onResultPressed()
-            firstValue = displayValue
-            self.operation = operation
         }
+        firstValue = displayValue
+        self.operation = operation
+        
         isTyping = false
         decimalIsPressed = false
         
@@ -137,16 +116,14 @@ class ViewController: UIViewController {
         secondValue = 0
         operation = ""
         decimalIsPressed = false
+        onPercentagePressed = false
         displayValue = 0
-        onOperationsPressedCount = 0
-        
     }
     
     @IBAction func onResultPressed() {
         
         if isTyping {
             secondValue = displayValue
-            onOperationsPressedCount = 0
         }
         
         decimalIsPressed = false
@@ -154,9 +131,9 @@ class ViewController: UIViewController {
         
         switch operation {
         case Operations.plus.rawValue:
-            calculate("+")
+            calculate(Operations.plus.rawValue)
         case Operations.minus.rawValue:
-            calculate("-")
+            calculate(Operations.minus.rawValue)
         case Operations.multiplication.rawValue:
             calculate("*")
         case Operations.division.rawValue:
@@ -169,7 +146,15 @@ class ViewController: UIViewController {
     
     private func calculate(operationSign: String) {
         
-        let numericExpression = "\(firstValue)\(operationSign)\(secondValue)"
+        var numericExpression = "\(firstValue)\(operationSign)\(secondValue)"
+        if onPercentagePressed {
+            if firstValue == 0 {
+                displayValue = 0
+            } else {
+                numericExpression = "\(numericExpression)/100"
+            }
+            onPercentagePressed = false
+        }
         let expression = NSExpression(format: numericExpression)
         displayValue = expression.expressionValueWithObject(nil, context: nil) as! Double
         
