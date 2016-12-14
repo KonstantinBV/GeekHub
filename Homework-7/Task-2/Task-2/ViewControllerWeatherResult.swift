@@ -27,16 +27,14 @@ class ViewControllerWeatherResult: UIViewController, UITableViewDataSource, UITa
         
         super.viewDidLoad()
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            dispatch_async(dispatch_get_main_queue()) {
-                self.weatherTextView.editable = false
-                self.weatherTextView.layer.cornerRadius = 4
-                self.weatherTextView.layer.borderWidth = 1
-                self.weatherTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
-                if self.weather != nil {
-                    let info = self.weather!.getWeatherInfo()
-                    self.weatherTextView.text = info
-                }
+        Utilities.updateAssync { () -> () in
+            self.weatherTextView.editable = false
+            self.weatherTextView.layer.cornerRadius = 4
+            self.weatherTextView.layer.borderWidth = 1
+            self.weatherTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
+            if self.weather != nil {
+                let info = self.weather!.getWeatherInfo()
+                self.weatherTextView.text = info
             }
         }
         
@@ -52,26 +50,7 @@ class ViewControllerWeatherResult: UIViewController, UITableViewDataSource, UITa
         let weatherItem = weatherItems[indexPath.row]
         cell.textLabel?.text = String(weatherItem.description!)
         if weatherItem.icon != nil {
-            guard let url = NSURL(string: "\(WeatherLoader.imagesAddress)\(weatherItem.icon!).png") else {
-                return cell
-            }
-            let urlRequest = NSURLRequest(URL: url)
-            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-            let session = NSURLSession(configuration: config)
-            let dataTask = session.dataTaskWithRequest(urlRequest, completionHandler: {
-                (data, response, error) in
-                guard let responseImg = UIImage(data: data!) else {
-                    return
-                }
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        cell.imageView?.image = responseImg
-                    }
-                }
-                }
-            )
-            dataTask.resume()
-            
+            WeatherLoader.instance.loadWeatherImage(weatherItem.icon as! String, imageView: cell.imageView!)
         }
         return cell
     }

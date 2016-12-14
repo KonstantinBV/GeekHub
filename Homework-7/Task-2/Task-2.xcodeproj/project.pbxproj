@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5F923AE1E0141F400D3E13D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F923AD1E0141F400D3E13D /* Utilities.swift */; };
 		B5FCBF811DFFD35F00ADDFE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FCBF801DFFD35F00ADDFE0 /* AppDelegate.swift */; };
 		B5FCBF831DFFD35F00ADDFE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FCBF821DFFD35F00ADDFE0 /* ViewController.swift */; };
 		B5FCBF861DFFD35F00ADDFE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5FCBF841DFFD35F00ADDFE0 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5F923AD1E0141F400D3E13D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		B5FCBF7D1DFFD35F00ADDFE0 /* Task-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5FCBF801DFFD35F00ADDFE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5FCBF821DFFD35F00ADDFE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				B5FCBF801DFFD35F00ADDFE0 /* AppDelegate.swift */,
 				B5FCBF821DFFD35F00ADDFE0 /* ViewController.swift */,
 				B5FCBF921DFFD4E100ADDFE0 /* ViewControllerWeatherResult.swift */,
+				B5F923AD1E0141F400D3E13D /* Utilities.swift */,
 				B5FCBF841DFFD35F00ADDFE0 /* Main.storyboard */,
 				B5FCBF871DFFD35F00ADDFE0 /* Assets.xcassets */,
 				B5FCBF891DFFD35F00ADDFE0 /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			files = (
 				B5FCBFA71E0012C500ADDFE0 /* WeatherLoader.swift in Sources */,
 				B5FCBF931DFFD4E100ADDFE0 /* ViewControllerWeatherResult.swift in Sources */,
+				B5F923AE1E0141F400D3E13D /* Utilities.swift in Sources */,
 				B5FCBFA61E0012C500ADDFE0 /* WeatherJSONParser.swift in Sources */,
 				B5FCBF831DFFD35F00ADDFE0 /* ViewController.swift in Sources */,
 				B5FCBFA51E0012C500ADDFE0 /* WeatherData.swift in Sources */,

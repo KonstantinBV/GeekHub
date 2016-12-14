@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public struct Coordinates {
    
@@ -19,7 +20,7 @@ public struct Weather {
     public var id: AnyObject? = nil
     public var main: AnyObject? = nil
     public var description: AnyObject? = nil
-    public var icon: AnyObject? = nil
+    public var icon: AnyObject? = nil    
 }
 
 public struct Main {

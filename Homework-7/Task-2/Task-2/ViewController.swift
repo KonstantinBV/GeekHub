@@ -58,7 +58,7 @@ class ViewController: UIViewController {
             reportOnError("Please enter city name")
         } else {
             changeControlState(true)
-            WeatherLoader.loadWeatherForCity(city, completion: onComplited)
+            WeatherLoader.instance.loadWeatherForCity(city, completion: onComplited)
         }
     }
     
@@ -82,31 +82,29 @@ class ViewController: UIViewController {
     }
     
     private func reportOnError(errorMessage: String) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            dispatch_async(dispatch_get_main_queue()) {
-                self.errorMessageLabel.text = errorMessage
-                self.errorMessageLabel.sizeToFit()
-            }
+        
+        Utilities.updateAssync { () -> () in
+            self.errorMessageLabel.text = errorMessage
+            self.errorMessageLabel.sizeToFit()
         }
+        
     }
     
     private func changeControlState(isBusy: Bool) {
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            dispatch_async(dispatch_get_main_queue()) {
-                if isBusy {
-                    self.activityIndicator.startAnimating()
-                } else {
-                    self.activityIndicator.stopAnimating()
-                }
-                self.cityNameTextField.enabled = isBusy ? false : true
-                self.submitButton.enabled = isBusy ? false : true
-                
-                self.cityNameTextField.alpha = isBusy ? 0.5 : 1
-                self.submitButton.alpha = isBusy ? 0.5 : 1
-                
+        Utilities.updateAssync { () -> () in
+            if isBusy {
+                self.activityIndicator.startAnimating()
+            } else {
+                self.activityIndicator.stopAnimating()
             }
+            self.cityNameTextField.enabled = isBusy ? false : true
+            self.submitButton.enabled = isBusy ? false : true
+            
+            self.cityNameTextField.alpha = isBusy ? 0.5 : 1
+            self.submitButton.alpha = isBusy ? 0.5 : 1
         }
+        
     }
     
 }
