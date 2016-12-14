@@ -8,23 +8,39 @@
 
 import Foundation
 
-public class Task {
+public struct Task {
     
     //MARK: Properties
     
-    public var taskID = 0
+    private var taskID = 0
     public var text = ""
     public var date = NSDate()
     public var isDone = false
     
+    public var isNew: Bool {
+        get {
+            return taskID == 0
+        }
+    }
+    
     //MARK: Init functions
+    
     init() {
         
     }
     
-    init(taskID: Int, text: String) {
-        self.taskID = taskID
+    init(text: String) {
         self.text = text
+    }
+    
+    //MARK: Functions
+    
+    public mutating func setTaskID(taskID: Int) {
+        self.taskID = taskID
+    }
+    
+    public func getTaskID() -> Int {
+        return taskID
     }
     
 }

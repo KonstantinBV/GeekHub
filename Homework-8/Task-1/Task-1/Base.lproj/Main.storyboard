@@ -28,7 +28,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="Menu" id="BfD-TO-y1D"/>
                                         <barButtonItem key="rightBarButtonItem" title="Add" id="i9c-Kn-CNl">
                                             <connections>
-                                                <action selector="OnAddNewTaskPressed:" destination="BYZ-38-t0r" id="XG2-d1-FFe"/>
+                                                <action selector="OnAddItemPressed:" destination="BYZ-38-t0r" id="u7V-xl-mv9"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -113,7 +113,6 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="88Z-tm-rNg" id="oIc-J4-cSD"/>
-                        <segue destination="JMO-bi-eBq" kind="show" id="vxJ-iq-yNc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -123,7 +122,7 @@
         <!--View Controller Task Edit-->
         <scene sceneID="KO5-qL-1cK">
             <objects>
-                <viewController storyboardIdentifier="taskEditView" id="JMO-bi-eBq" customClass="ViewControllerTaskEdit" customModule="Task_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewControllerTaskEdit" id="JMO-bi-eBq" customClass="ViewControllerTaskEdit" customModule="Task_1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PDy-by-fSC"/>
                         <viewControllerLayoutGuide type="bottom" id="DcE-aR-75C"/>
@@ -140,7 +139,7 @@
                                     <navigationItem id="yg5-7d-HN8">
                                         <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="Aee-o9-Sk8">
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" id="Tfa-RG-8p7"/>
+                                                <segue destination="BYZ-38-t0r" kind="show" identifier="mainSegue" id="Tfa-RG-8p7"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="rYU-7Q-fgs">
@@ -154,6 +153,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter task text" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g50-rr-Tfq">
                                 <rect key="frame" x="20" y="77" width="560" height="30"/>
                                 <animations/>
+                                <color key="backgroundColor" red="0.9470098122420727" green="1" blue="0.93253429430516932" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
@@ -178,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOX-HU-W9M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1143" y="483"/>
+            <point key="canvasLocation" x="1158" y="469"/>
         </scene>
     </scenes>
 </document>

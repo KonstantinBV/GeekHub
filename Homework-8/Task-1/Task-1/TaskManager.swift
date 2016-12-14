@@ -37,23 +37,31 @@ public class TaskManager {
     
     public func addTask(taskText: String) -> Task? {
         
-        var newID = 0
-        var newTask: Task? = nil
-        if tasks.count > 0 {
-            let sortedTasks = sortTasks(SortingType.byTaskID, withMain: false)
-            newID = (sortedTasks.first?.taskID)! + 1
-        }
-        
+        var newTask: Task?
         if !taskText.isEmpty {
-            newTask = Task(taskID: newID, text: taskText)
+            newTask = Task(text: taskText)
             tasks.append(newTask!)
         }
         return newTask
     }
     
+    public func addTask(var newTask: Task) {
+        
+        if newTask.text.isEmpty {
+            return
+        }
+        
+        let newID = getNewTaskID()
+        if newID > 0 {
+            newTask.setTaskID(newID)
+            tasks.append(newTask)
+        }
+        
+    }
+    
     public func removeTask(taskID: Int) {
         
-        guard let index = tasks.indexOf( { $0.taskID == taskID } ) else {
+        guard let index = tasks.indexOf( { $0.getTaskID() == taskID } ) else {
             return
         }
         tasks.removeAtIndex(index)
@@ -72,7 +80,7 @@ public class TaskManager {
                 sortedTasks = tasks.sort ({ $0.0.text < $0.1.text })
             break
             case SortingType.byTaskID:
-                sortedTasks = tasks.sort ({ $0.0.taskID < $0.1.taskID })
+                sortedTasks = tasks.sort ({ $0.0.getTaskID() < $0.1.getTaskID() })
             break
             
         }
@@ -87,6 +95,20 @@ public class TaskManager {
     public func getTasks() -> [Task] {
         
         return tasks
+        
+    }
+    
+    private func getNewTaskID() -> Int {
+        
+        var newID = 0
+        if tasks.count > 0 {
+            let sortedTasks = sortTasks(SortingType.byTaskID, withMain: false)
+            newID = (sortedTasks.first?.getTaskID())! + 1
+        } else {
+            newID = 1
+        }
+        
+        return newID
         
     }
     

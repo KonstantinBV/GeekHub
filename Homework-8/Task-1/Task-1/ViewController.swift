@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //MARK: Properties
     
     @IBOutlet weak var tableView: UITableView!
-    private var taskManager = TaskManager()
+    var selectedTask: Task?
     
     
     //MARK: Virtual Functions
@@ -22,51 +22,54 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        guard let vcTaskEdit: ViewControllerTaskEdit = segue.destinationViewController as? ViewControllerTaskEdit else {
+    override func viewWillAppear(animated: Bool) {
+        
+        guard let validTask = selectedTask else {
             return
         }
-        vcTaskEdit.task = Task()
-    }*/
+        if validTask.isNew {
+            TaskManager.instance.addTask(validTask)
+        }
+        
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath) as! TaskTableViewCell
-        cell.setTask(taskManager.getTasks()[indexPath.row])        
+        cell.setTask(TaskManager.instance.getTasks()[indexPath.row])
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return taskManager.getTasks().count
+        return TaskManager.instance.getTasks().count
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let viewController: ViewControllerTaskEdit = storyboard?.instantiateViewControllerWithIdentifier("taskEditView") as! ViewControllerTaskEdit
-        viewController.task = taskManager.getTasks()[indexPath.row]
-        self.navigationController?.pushViewController(viewController, animated: true)
+        openEditView(TaskManager.instance.getTasks()[indexPath.row])
+
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    //MARK: Actions
+    //Private Functions
     
-    @IBAction func OnAddNewTaskPressed(sender: UIBarButtonItem) {
+    private func openEditView(task: Task) {
         
-        taskManager.addTask("ssss")
+        let viewController: ViewControllerTaskEdit = storyboard?.instantiateViewControllerWithIdentifier("ViewControllerTaskEdit") as! ViewControllerTaskEdit
+        viewController.task = task
+        self.presentViewController(viewController, animated: true, completion: nil)
         
-        tableView.reloadData()
     }
     
+    //MARK: Actions
     
-
+    @IBAction func OnAddItemPressed(sender: UIBarButtonItem) {
+        
+        openEditView(Task())
+    }
 
 }
 

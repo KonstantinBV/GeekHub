@@ -13,8 +13,7 @@ class ViewControllerTaskEdit: UIViewController, UITextFieldDelegate {
     //MARK: Properties
     
     var task: Task?
-    @IBOutlet weak var taskTextFiled: UITextField!
-    
+    @IBOutlet weak var taskTextFiled: UITextField!    
     
     //MARK: Virtual Functions
     
@@ -33,6 +32,13 @@ class ViewControllerTaskEdit: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let vcMain: ViewController = segue.destinationViewController as? ViewController else {
+            return
+        }
+        vcMain.selectedTask = task
     }
     
     @IBAction func OnSavePressed(sender: UIBarButtonItem) {
