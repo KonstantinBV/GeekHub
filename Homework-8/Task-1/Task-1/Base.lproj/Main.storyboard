@@ -137,11 +137,7 @@
                                 <color key="barTintColor" red="0.90588235294117647" green="0.93725490196078431" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem id="yg5-7d-HN8">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="Aee-o9-Sk8">
-                                            <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" identifier="mainSegue" id="Tfa-RG-8p7"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="Aee-o9-Sk8"/>
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="rYU-7Q-fgs">
                                             <connections>
                                                 <action selector="OnSavePressed:" destination="JMO-bi-eBq" id="cbk-aB-98X"/>

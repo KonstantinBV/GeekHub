@@ -13,21 +13,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //MARK: Properties
     
     @IBOutlet weak var tableView: UITableView!
+    
     var selectedTask: Task?
     
     
     //MARK: Virtual Functions
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+
     
     override func viewWillAppear(animated: Bool) {
         
         guard let validTask = selectedTask else {
             return
         }
+        
         if validTask.isNew {
             TaskManager.instance.addTask(validTask)
         }
