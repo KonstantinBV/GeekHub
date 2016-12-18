@@ -31,8 +31,6 @@ class ViewCellTask: UITableViewCell {
     
     @IBOutlet weak var taskTextLabel: UILabel!
     
-    @IBOutlet weak var deleteButton: UIButton!
-    
     //MARK: Actions
     
     @IBAction func OnDoneSwitched(sender: UISwitch) {
@@ -41,10 +39,6 @@ class ViewCellTask: UITableViewCell {
             return
         }
         task!.isDone = sender.on
-        
-    }
-    
-    @IBAction func OnDeletePressed(sender: UIButton) {
         
     }
     

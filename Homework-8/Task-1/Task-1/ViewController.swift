@@ -12,6 +12,12 @@ extension ViewController {
     
     //MARK: Virtual Functions
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
     }
