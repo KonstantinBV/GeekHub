@@ -8,26 +8,32 @@
 
 import UIKit
 
-class TaskTableViewCell: UITableViewCell {
-
-    private var task: Task?
+extension ViewCellTask {
     
-    @IBOutlet weak var doneSwitcher: UISwitch!
-    @IBOutlet weak var taskTextLabel: UILabel!
-    @IBOutlet weak var deleteButton: UIButton!
-    
+    //MARK; Additional Functions
     
     func setTask(task: Task) {
         
         self.task = task
         taskTextLabel.text = task.text
-        if task.isDone {
-            doneSwitcher.setOn(true, animated: true)
-        } else {
-            doneSwitcher.setOn(false, animated: true)
-        }
-        
+        doneSwitcher.on = task.isDone
     }
+    
+}
+
+class ViewCellTask: UITableViewCell {
+
+    //MARK: Properties
+    
+    private var task: Task?
+    
+    @IBOutlet weak var doneSwitcher: UISwitch!
+    
+    @IBOutlet weak var taskTextLabel: UILabel!
+    
+    @IBOutlet weak var deleteButton: UIButton!
+    
+    //MARK: Actions
     
     @IBAction func OnDoneSwitched(sender: UISwitch) {
         
@@ -38,9 +44,8 @@ class TaskTableViewCell: UITableViewCell {
         
     }
     
-    
     @IBAction func OnDeletePressed(sender: UIButton) {
-
+        
     }
     
 }

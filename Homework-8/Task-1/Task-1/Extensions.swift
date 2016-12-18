@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public extension String {
     
@@ -75,4 +76,49 @@ extension NSDate {
         return dateFormatter.stringFromDate(self)
     }
 }
+
+/*extension UITableViewDataSource {
+    
+    //MARK: Virtual Functions
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath) as! TaskTableViewCell
+        cell.setTask(TaskHelper.instance.getTasks()[indexPath.row])
+        return cell
+        
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return TaskHelper.instance.getTasks().count
+        
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        openEditView(TaskHelper.instance.getTasks()[indexPath.row])
+        
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        return 1
+        
+    }
+    
+    //MARK: Additional Functions
+    
+    func openEditView(task: Task) {
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let viewControllerToDo = storyBoard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        let viewControllerTaskEdit: ViewControllerTaskEdit = storyBoard.instantiateViewControllerWithIdentifier("ViewControllerTaskEdit") as! ViewControllerTaskEdit
+        viewControllerTaskEdit.task = task
+        viewControllerToDo.presentViewController(viewControllerTaskEdit, animated: true, completion: nil)
+        
+    }
+    
+}*/
+
 
