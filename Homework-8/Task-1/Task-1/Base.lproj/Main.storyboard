@@ -50,46 +50,35 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Dc-kW-fwP">
-                                                    <rect key="frame" x="8" y="7" width="51" height="31"/>
-                                                    <animations/>
-                                                    <connections>
-                                                        <action selector="OnDoneSwitched:" destination="jek-Zq-vnR" eventType="valueChanged" id="nqr-jP-X6h"/>
-                                                    </connections>
-                                                </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="l3c-UZ-s9V">
-                                                    <rect key="frame" x="65" y="11" width="447" height="21"/>
+                                                    <rect key="frame" x="63" y="8" width="524" height="27"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HS-xk-XBD">
-                                                    <rect key="frame" x="520" y="8" width="59" height="30"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Dc-kW-fwP">
+                                                    <rect key="frame" x="9" y="8" width="51" height="27"/>
                                                     <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="59" id="6Tf-tg-cAN"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Delete"/>
                                                     <connections>
-                                                        <action selector="OnDeletePressed:" destination="jek-Zq-vnR" eventType="touchUpInside" id="E6i-Zq-jN3"/>
+                                                        <action selector="OnDoneSwitched:" destination="jek-Zq-vnR" eventType="valueChanged" id="nqr-jP-X6h"/>
                                                     </connections>
-                                                </button>
+                                                </switch>
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="7HS-xk-XBD" secondAttribute="trailing" constant="13" id="392-N2-M8C"/>
-                                                <constraint firstItem="l3c-UZ-s9V" firstAttribute="centerY" secondItem="k0B-bP-0bD" secondAttribute="centerY" id="4a8-Ij-lzB"/>
-                                                <constraint firstItem="0Dc-kW-fwP" firstAttribute="bottom" secondItem="7HS-xk-XBD" secondAttribute="bottom" id="8lU-ly-rt1"/>
-                                                <constraint firstItem="0Dc-kW-fwP" firstAttribute="leading" secondItem="k0B-bP-0bD" secondAttribute="leadingMargin" id="Oy9-ss-TYB"/>
-                                                <constraint firstItem="7HS-xk-XBD" firstAttribute="leading" secondItem="l3c-UZ-s9V" secondAttribute="trailing" constant="8" symbolic="YES" id="QB9-Kw-HDP"/>
-                                                <constraint firstItem="l3c-UZ-s9V" firstAttribute="leading" secondItem="0Dc-kW-fwP" secondAttribute="trailing" constant="8" symbolic="YES" id="Wf4-MF-1dP"/>
-                                                <constraint firstItem="7HS-xk-XBD" firstAttribute="top" secondItem="k0B-bP-0bD" secondAttribute="topMargin" id="ibu-k0-P1h"/>
+                                                <constraint firstItem="l3c-UZ-s9V" firstAttribute="bottom" secondItem="k0B-bP-0bD" secondAttribute="bottomMargin" id="1PX-f7-XG4"/>
+                                                <constraint firstItem="l3c-UZ-s9V" firstAttribute="leading" secondItem="0Dc-kW-fwP" secondAttribute="trailing" constant="5" id="3LH-1Z-LdR"/>
+                                                <constraint firstItem="0Dc-kW-fwP" firstAttribute="top" secondItem="l3c-UZ-s9V" secondAttribute="top" id="9bb-6D-oo9"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="l3c-UZ-s9V" secondAttribute="trailing" constant="5" id="EbN-zp-RgG"/>
+                                                <constraint firstItem="0Dc-kW-fwP" firstAttribute="leading" secondItem="k0B-bP-0bD" secondAttribute="leadingMargin" constant="1" id="Ej3-BB-oIL"/>
+                                                <constraint firstItem="l3c-UZ-s9V" firstAttribute="leading" secondItem="0Dc-kW-fwP" secondAttribute="trailing" constant="5" id="WYx-ty-saR"/>
+                                                <constraint firstItem="0Dc-kW-fwP" firstAttribute="leading" secondItem="k0B-bP-0bD" secondAttribute="leadingMargin" constant="1" id="Wl7-1h-XFw"/>
+                                                <constraint firstItem="l3c-UZ-s9V" firstAttribute="top" secondItem="k0B-bP-0bD" secondAttribute="topMargin" id="eBU-gk-GuK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <outlet property="deleteButton" destination="7HS-xk-XBD" id="3Ha-IF-v0e"/>
                                             <outlet property="doneSwitcher" destination="0Dc-kW-fwP" id="dbW-SW-zbW"/>
                                             <outlet property="taskTextLabel" destination="l3c-UZ-s9V" id="9qu-Gl-K4f"/>
                                         </connections>

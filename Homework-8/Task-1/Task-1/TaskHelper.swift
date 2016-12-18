@@ -56,6 +56,12 @@ class TaskHelper {
         guard let index = tasks.indexOf( { $0.text == task.text && $0.date == task.date } ) else {
             return
         }
+        removeTask(index)
+        
+    }
+    
+    func removeTask(index: Int) {
+        
         tasks.removeAtIndex(index)
         
     }

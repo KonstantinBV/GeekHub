@@ -37,10 +37,21 @@ extension ViewController {
         
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        return 1
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
+        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete") { (action: UITableViewRowAction, indexPath: NSIndexPath!) -> Void in
+            
+           TaskHelper.instance.removeTask(indexPath.row)
+           self.tableView.reloadData()
+        }
+        
+        deleteAction.backgroundColor = UIColor.grayColor()
+        
+        return [deleteAction]
     }
     
     //MARK: Additional Functions
@@ -51,6 +62,33 @@ extension ViewController {
         viewControllerTaskEdit.task = task
         self.presentViewController(viewControllerTaskEdit, animated: true, completion: nil)
         
+    }
+    
+    func getActionMenuController() -> UIAlertController {
+        
+        let actionManu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
+        
+        let sortByABCAction = UIAlertAction(title: "Sort by ABC", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            TaskHelper.instance.sortTasks(SortingType.byText, withMain: true)
+            self.tableView.reloadData()
+        })
+        let sortByDateAction = UIAlertAction(title: "Sort by date", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            TaskHelper.instance.sortTasks(SortingType.byDate, withMain: true)
+            self.tableView.reloadData()
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            actionManu.dismissViewControllerAnimated(true, completion: nil)
+        })
+        
+        actionManu.addAction(sortByABCAction)
+        actionManu.addAction(sortByDateAction)
+        actionManu.addAction(cancelAction)
+
+        return actionManu
     }
     
 }
@@ -73,29 +111,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBAction func showActionMenu(sender: UIBarButtonItem) {
         
-        let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .ActionSheet)
         
-        let sortByABCAction = UIAlertAction(title: "Sort by ABC", style: .Default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            TaskHelper.instance.sortTasks(SortingType.byText, withMain: true)
-            self.tableView.reloadData()
-        })
-        let sortByDateAction = UIAlertAction(title: "Sort by date", style: .Default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            TaskHelper.instance.sortTasks(SortingType.byDate, withMain: true)
-            self.tableView.reloadData()
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
-            (alert: UIAlertAction!) -> Void in
-            optionMenu.dismissViewControllerAnimated(true, completion: nil)
-        })
-        
-        optionMenu.addAction(sortByABCAction)
-        optionMenu.addAction(sortByDateAction)
-        optionMenu.addAction(cancelAction)
-        
-        self.presentViewController(optionMenu, animated: true, completion: nil)
+        self.presentViewController(getActionMenuController(), animated: true, completion: nil)
         
     }
     
