@@ -13,6 +13,22 @@ enum SortingType {
     
 }
 
+//MARK: JSON File Path
+
+struct JSONFile {
+    
+    static let fileName = "ToDoData"
+    static let fileExtension = "json"
+    static var jsonFileName: String {
+        
+        get {
+            
+            return "\(fileName).\(fileExtension)"
+        }
+    }
+    
+}
+
 //MARK: ToDoHelper - extension
 
 extension ToDoHelper {
@@ -88,14 +104,12 @@ extension ToDoHelper {
     
     private func getJSONFilePath() -> String? {
         
-        return "/Users/konstantin/GeekHub/Homework-8/Task-1/Task-1/ToDoData.json"
-        
-       /* guard let jsonFilePath = NSBundle.mainBundle().pathForResource("ToDoData", ofType: "json") else {
-            print("Error! File 'ToDoData.json' doesn't exist.")
+        //return "/Users/konstantin/GeekHub/Homework-8/Task-1/Task-1/\(JSONFile.jsonFileName)"
+        guard let jsonFilePath = NSBundle.mainBundle().pathForResource(JSONFile.fileName, ofType: JSONFile.fileExtension) else {
+            print("Error! File '\(JSONFile.jsonFileName)' doesn't exist.")
             return nil
         }
-        
-        return jsonFilePath*/
+        return jsonFilePath
         
     }
     
