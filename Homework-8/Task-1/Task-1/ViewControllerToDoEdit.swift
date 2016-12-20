@@ -55,7 +55,7 @@ extension ViewControllerToDoEdit {
         
         toDo!.text = toDoText
         toDo!.isDone = doneSwitcher.on
-        delegate?.saveItem(toDo!, isNew: isNewItem)
+        delegate?.addItem(toDo!)
     }
     
 }

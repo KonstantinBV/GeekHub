@@ -31,8 +31,6 @@ class ViewCellToDo: UITableViewCell {
     
     private var toDo: ToDo?
     
-    var delegate: ToDoCellDelegate?
-    
     @IBOutlet weak var doneSwitcher: UISwitch!
     
     @IBOutlet weak var toDoTextLabel: UILabel!
@@ -44,8 +42,7 @@ class ViewCellToDo: UITableViewCell {
         if toDo == nil {
             return
         }
-        toDo!.isDone = sender.on        
-        delegate?.onDoneSwitched()
+        toDo!.isDone = sender.on 
         
     }
     

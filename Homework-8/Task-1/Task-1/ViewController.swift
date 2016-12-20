@@ -33,8 +33,6 @@ extension ViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ViewCellToDo", forIndexPath: indexPath) as! ViewCellToDo
         cell.setItem(toDoHelper.getToDoList()[indexPath.row])
-        cell.delegate = self
-        
         return cell
         
     }
@@ -66,21 +64,10 @@ extension ViewController {
         return [deleteAction]
     }
     
-    func saveItem(toDo: ToDo, isNew: Bool) {
+    func addItem(toDo: ToDo) {
         
-        if isNew {
-            
-            toDoHelper.add(toDo)
-            
-        }
-        toDoHelper.saveData()
+        toDoHelper.add(toDo)
         tableView.reloadData()
-        
-    }
-    
-    func onDoneSwitched() {
-        
-        toDoHelper.saveData()
         
     }
     
@@ -126,13 +113,36 @@ extension ViewController {
 
 //MARK: ViewController - class
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ToDoListDelegate, ToDoCellDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ToDoListDelegate {
 
+    //MARK: Members
+    
+    private var toDoHelperInstance: ToDoHelper?
+    
+    
     //MARK: Properties
     
     @IBOutlet weak var tableView: UITableView!
     
-    var toDoHelper = ToDoHelper()
+    var toDoHelper: ToDoHelper {
+        
+        get {
+            
+            if toDoHelperInstance == nil {
+                
+                toDoHelperInstance = (UIApplication.sharedApplication().delegate as! AppDelegate).toDoHelper
+            }
+            
+            if toDoHelperInstance == nil {
+                
+                toDoHelperInstance = ToDoHelper()
+                
+            }
+            
+            return toDoHelperInstance!
+            
+        }
+    }
     
     //MARK: Actions
     
