@@ -23,14 +23,6 @@ extension ViewController {
         toDoHelper.loadData()
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        
-        super.viewWillDisappear(animated)
-        
-        toDoHelper.saveData()
-        
-    }
-    
     override func viewDidAppear(animated: Bool) {
         
         tableView.reloadData()
@@ -41,6 +33,7 @@ extension ViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ViewCellToDo", forIndexPath: indexPath) as! ViewCellToDo
         cell.setItem(toDoHelper.getToDoList()[indexPath.row])
+        cell.delegate = self
         
         return cell
         
@@ -63,8 +56,9 @@ extension ViewController {
         let deleteAction = UITableViewRowAction(style: .Default, title: "Delete") {
             (action: UITableViewRowAction, indexPath: NSIndexPath!) -> Void in
             
-           self.toDoHelper.remove(indexPath.row)
-           self.tableView.reloadData()
+            self.toDoHelper.remove(indexPath.row)
+            self.toDoHelper.saveData()
+            self.tableView.reloadData()
         }
         
         deleteAction.backgroundColor = UIColor.grayColor()
@@ -72,10 +66,21 @@ extension ViewController {
         return [deleteAction]
     }
     
-    func addItem(toDo: ToDo) {
+    func saveItem(toDo: ToDo, isNew: Bool) {
         
-        toDoHelper.add(toDo)
+        if isNew {
+            
+            toDoHelper.add(toDo)
+            
+        }
+        toDoHelper.saveData()
         tableView.reloadData()
+        
+    }
+    
+    func onDoneSwitched() {
+        
+        toDoHelper.saveData()
         
     }
     
