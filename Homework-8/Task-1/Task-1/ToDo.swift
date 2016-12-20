@@ -1,14 +1,11 @@
 //
-//  Task.swift
-//  Task-1
-//
-//  Created by konstantin on 12/14/16.
+//  Created by konstantin on 12/19/16.
 //  Copyright © 2016 konstantin. All rights reserved.
 //
 
 import Foundation
 
-struct Task {
+class ToDo {
     
     //MARK: Properties
     

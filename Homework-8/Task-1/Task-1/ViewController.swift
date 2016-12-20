@@ -8,24 +8,39 @@
 
 import UIKit
 
+//MARK: ViewController - extension
+
 extension ViewController {
     
     //MARK: Virtual Functions
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
         tableView.dataSource = self
         tableView.delegate = self
+        toDoHelper.loadData()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        toDoHelper.saveData()
+        
     }
     
     override func viewDidAppear(animated: Bool) {
+        
         tableView.reloadData()
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ViewCellTask", forIndexPath: indexPath) as! ViewCellTask
-        cell.setTask(TaskHelper.instance.getTasks()[indexPath.row])
+        let cell = tableView.dequeueReusableCellWithIdentifier("ViewCellToDo", forIndexPath: indexPath) as! ViewCellToDo
+        cell.setItem(toDoHelper.getToDoList()[indexPath.row])
         
         return cell
         
@@ -33,25 +48,22 @@ extension ViewController {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return TaskHelper.instance.getTasks().count
+        return toDoHelper.getToDoList().count
         
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         
-        openEditView(TaskHelper.instance.getTasks()[indexPath.row])
-        
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        openEditView(toDoHelper.getToDoList()[indexPath.row])
         
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
-        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete") { (action: UITableViewRowAction, indexPath: NSIndexPath!) -> Void in
+        let deleteAction = UITableViewRowAction(style: .Default, title: "Delete") {
+            (action: UITableViewRowAction, indexPath: NSIndexPath!) -> Void in
             
-           TaskHelper.instance.removeTask(indexPath.row)
+           self.toDoHelper.remove(indexPath.row)
            self.tableView.reloadData()
         }
         
@@ -60,13 +72,21 @@ extension ViewController {
         return [deleteAction]
     }
     
+    func addItem(toDo: ToDo) {
+        
+        toDoHelper.add(toDo)
+        tableView.reloadData()
+        
+    }
+    
     //MARK: Additional Functions
     
-    func openEditView(task: Task?) {
+    func openEditView(toDo: ToDo?) {
         
-        let viewControllerTaskEdit: ViewControllerTaskEdit = self.storyboard?.instantiateViewControllerWithIdentifier("ViewControllerTaskEdit") as! ViewControllerTaskEdit
-        viewControllerTaskEdit.task = task
-        self.presentViewController(viewControllerTaskEdit, animated: true, completion: nil)
+        let viewControllerToDoEdit: ViewControllerToDoEdit = self.storyboard?.instantiateViewControllerWithIdentifier("ViewControllerToDoEdit") as! ViewControllerToDoEdit
+        viewControllerToDoEdit.toDo = toDo
+        viewControllerToDoEdit.delegate = self
+        self.presentViewController(viewControllerToDoEdit, animated: true, completion: nil)
         
     }
     
@@ -76,12 +96,12 @@ extension ViewController {
         
         let sortByABCAction = UIAlertAction(title: "Sort by ABC", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            TaskHelper.instance.sortTasks(SortingType.byText, withMain: true)
+            self.toDoHelper.sort(SortingType.byText, withMain: true)
             self.tableView.reloadData()
         })
         let sortByDateAction = UIAlertAction(title: "Sort by date", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            TaskHelper.instance.sortTasks(SortingType.byDate, withMain: true)
+            self.toDoHelper.sort(SortingType.byDate, withMain: true)
             self.tableView.reloadData()
         })
         
@@ -99,11 +119,15 @@ extension ViewController {
     
 }
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+//MARK: ViewController - class
+
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ToDoListDelegate {
 
     //MARK: Properties
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var toDoHelper = ToDoHelper()
     
     //MARK: Actions
     
@@ -111,12 +135,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         openEditView(nil)
     }
-    
-    //MARK: Additional Functions
-    
 
     @IBAction func showActionMenu(sender: UIBarButtonItem) {
-        
         
         self.presentViewController(getActionMenuController(), animated: true, completion: nil)
         

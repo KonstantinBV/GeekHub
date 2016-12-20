@@ -43,14 +43,14 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ViewCellTask" id="jek-Zq-vnR" customClass="ViewCellTask" customModule="Task_1" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ViewCellToDo" id="jek-Zq-vnR" customClass="ViewCellToDo" customModule="Task_1" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jek-Zq-vnR" id="k0B-bP-0bD">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="l3c-UZ-s9V">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To do text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="l3c-UZ-s9V">
                                                     <rect key="frame" x="63" y="8" width="524" height="27"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -80,7 +80,7 @@
                                         <animations/>
                                         <connections>
                                             <outlet property="doneSwitcher" destination="0Dc-kW-fwP" id="dbW-SW-zbW"/>
-                                            <outlet property="taskTextLabel" destination="l3c-UZ-s9V" id="9qu-Gl-K4f"/>
+                                            <outlet property="toDoTextLabel" destination="l3c-UZ-s9V" id="Ji1-Vz-x41"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -114,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="1175" y="469"/>
         </scene>
-        <!--View Controller Task Edit-->
+        <!--View Controller To Do Edit-->
         <scene sceneID="KO5-qL-1cK">
             <objects>
-                <viewController storyboardIdentifier="ViewControllerTaskEdit" id="JMO-bi-eBq" customClass="ViewControllerTaskEdit" customModule="Task_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewControllerToDoEdit" id="JMO-bi-eBq" customClass="ViewControllerToDoEdit" customModule="Task_1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PDy-by-fSC"/>
                         <viewControllerLayoutGuide type="bottom" id="DcE-aR-75C"/>
@@ -134,12 +134,12 @@
                                     <navigationItem id="yg5-7d-HN8">
                                         <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="Aee-o9-Sk8">
                                             <connections>
-                                                <action selector="OnBackPressed:" destination="JMO-bi-eBq" id="T1a-4s-ARK"/>
+                                                <action selector="onBackPressed:" destination="JMO-bi-eBq" id="gMl-la-GIb"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="rYU-7Q-fgs">
                                             <connections>
-                                                <action selector="OnSavePressed:" destination="JMO-bi-eBq" id="cbk-aB-98X"/>
+                                                <action selector="onSavePressed:" destination="JMO-bi-eBq" id="rJz-3e-VBL"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
