@@ -31,7 +31,7 @@ class ViewCellToDo: UITableViewCell {
     
     private var toDo: ToDo?
     
-    var delegate: ToDoListDelegate?
+    var delegate: ToDoCellDelegate?
     
     @IBOutlet weak var doneSwitcher: UISwitch!
     

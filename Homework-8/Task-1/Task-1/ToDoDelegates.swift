@@ -9,6 +9,10 @@ protocol ToDoListDelegate {
     
     func saveItem(toDo: ToDo, isNew: Bool)
     
+}
+
+protocol ToDoCellDelegate {
+    
     func onDoneSwitched()
     
 }

@@ -126,7 +126,7 @@ extension ViewController {
 
 //MARK: ViewController - class
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ToDoListDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ToDoListDelegate, ToDoCellDelegate {
 
     //MARK: Properties
     

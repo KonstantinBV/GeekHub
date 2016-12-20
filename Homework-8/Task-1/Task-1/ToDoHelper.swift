@@ -88,16 +88,15 @@ extension ToDoHelper {
     
     private func getJSONFilePath() -> String? {
         
-        return "/Users/konstantin/GeekHub/Homework-8/Task-1/Task-1/ToDoData.json"
+        //return "/Users/konstantin/GeekHub/Homework-8/Task-1/Task-1/ToDoData.json"
         
-        /*
         guard let jsonFilePath = NSBundle.mainBundle().pathForResource("ToDoData", ofType: "json") else {
             print("Error! File 'ToDoData.json' doesn't exist.")
             return nil
         }
         
         return jsonFilePath
-        */
+        
     }
     
     private func readJsonFile() -> AnyObject? {
