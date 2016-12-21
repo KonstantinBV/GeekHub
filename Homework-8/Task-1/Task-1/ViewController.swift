@@ -20,12 +20,21 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, ToDoListDe
         
         tableView.dataSource = self
         tableView.delegate = self
-        ToDoHelper.instanse.loadData()
+        ToDoHelper.instanse.delegate = self
+        
+        activityAnimations.startAnimating()
+        
+        Utilities.doSomethingAssync { () -> () in
+            ToDoHelper.instanse.loadData()
+            self.activityAnimations.stopAnimating()
+            self.tableView.reloadData()
+        }
+        
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         
-        tableView.reloadData()
+       self.tableView.reloadData()
         
     }
     
@@ -72,27 +81,42 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, ToDoListDe
     
     func saveItem(toDo: ToDo, isNew: Bool) {
         
-        guard let indexPath = tableView.indexPathForSelectedRow else {
-            //user allert
-            return
-        }
         if isNew {
             ToDoHelper.instanse.add(toDo)
         } else {
+            guard let indexPath = tableView.indexPathForSelectedRow else {
+                showMessage("Error", text: "No selected data.")
+                return
+            }
             ToDoHelper.instanse.updateAtIndex(indexPath.row, toDo: toDo)
         }
+        
         tableView.reloadData()
         
     }
     
     func updateToDoOnDoneChanged(cell: ViewCellToDo) {
         
-        guard let indexPath = tableView.indexPathForSelectedRow else {
-            //user allert
+        guard let indexPath = tableView.indexPathForCell(cell) else {
+            showMessage("Error", text: "Data doesn't exist anymore.")
             return
-        }
+        }        
+       
         ToDoHelper.instanse.updateAtIndex(indexPath.row, toDo: cell.toDo!)
         tableView.reloadData()
+    }
+    
+    func showMessage(title: String, text: String) {
+        
+        let messageMenu = UIAlertController(title: title, message: text, preferredStyle: .Alert)
+        let okAction = UIAlertAction(title: "OK", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            messageMenu.dismissViewControllerAnimated(true, completion: nil)
+        })
+        
+        messageMenu.addAction(okAction)
+        self.presentViewController(messageMenu, animated: true, completion: nil)
+        
     }
     
     //MARK: Additional Functions
@@ -142,6 +166,7 @@ class ViewController: UIViewController {
     //MARK: Properties
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityAnimations: UIActivityIndicatorView!
     
     //MARK: Actions
     

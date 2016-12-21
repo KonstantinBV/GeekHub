@@ -59,7 +59,7 @@ extension ToDoHelper {
             return jsonData
         }
         catch {
-            print("Error while converting the data")
+            self.delegate?.showMessage("Attention", text: "Error while converting the data.")
         }
         return nil
     }
@@ -104,12 +104,13 @@ extension ToDoHelper {
     
     private func getJSONFilePath() -> String? {
         
+        return "/Users/Shared/\(JSONFile.jsonFileName)"
         //return "/Users/konstantin/GeekHub/Homework-8/Task-1/Task-1/\(JSONFile.jsonFileName)"
-        guard let jsonFilePath = NSBundle.mainBundle().pathForResource(JSONFile.fileName, ofType: JSONFile.fileExtension) else {
-            print("Error! File '\(JSONFile.jsonFileName)' doesn't exist.")
+        /*guard let jsonFilePath = NSBundle.mainBundle().pathForResource(JSONFile.fileName, ofType: JSONFile.fileExtension) else {
+            delegate?.showMessage("Error", text: "File '\(JSONFile.jsonFileName)' doesn't exist.")
             return nil
         }
-        return jsonFilePath
+        return jsonFilePath*/
         
     }
     
@@ -125,7 +126,7 @@ extension ToDoHelper {
             return try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .AllowFragments)
             
         } catch {
-            print("Error while reading the file.")
+            delegate?.showMessage("Attention", text: "Error while reading the file.")
         }
         return nil
     }
@@ -135,7 +136,7 @@ extension ToDoHelper {
     func saveData() {
         
         Utilities.doSomethingAssync { () -> () in
-            
+           
             guard let jsonData = self.convertToDoListToJSONData() else {
                 return
             }
@@ -146,8 +147,7 @@ extension ToDoHelper {
             
             let fileManager = NSFileManager.defaultManager()
             if !fileManager.createFileAtPath(jsonFilePath, contents: jsonData, attributes: nil) {
-                
-                print("Error while saving data.")
+                self.delegate?.showMessage("Attention", text: "Error while saving data.")
             }
             
         }
@@ -156,10 +156,10 @@ extension ToDoHelper {
     
     func loadData() {
         
-        guard let jsonObject = readJsonFile() else {
+        guard let jsonObject = self.readJsonFile() else {
             return
         }
-        toDoList = parseJSONData(jsonObject)
+        self.toDoList = self.parseJSONData(jsonObject)
         
     }
     
@@ -169,11 +169,14 @@ class ToDoHelper {
     
     
     //MARK: Members
+    
     private static var toDoInstanse: ToDoHelper?
     
     //MARK: Properties
     
     private var toDoList = [ToDo]()
+    
+    var delegate: ToDoMessageDelegate?
     
     static var instanse: ToDoHelper {
         

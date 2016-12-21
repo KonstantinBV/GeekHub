@@ -42,11 +42,11 @@ extension ViewControllerToDoEdit: UITextFieldDelegate {
     
     //MARK: Private functions
     
-    private func save() {
+    private func save() -> Bool {
         
         let toDoText = taskTextFiled.text!
         if toDoText.isEmpty {
-            return
+            return false
         }
         
         if isNewItem {
@@ -57,6 +57,7 @@ extension ViewControllerToDoEdit: UITextFieldDelegate {
         toDo!.isDone = doneSwitcher.on
         
         delegate?.saveItem(toDo!, isNew: isNewItem)
+        return true
     }
     
 }
@@ -82,8 +83,9 @@ class ViewControllerToDoEdit: UIViewController {
     
     @IBAction func onSavePressed(sender: UIBarButtonItem) {
         
-        save()
-        onBackPressed(nil)
+        if save() {
+             onBackPressed(nil)
+        }       
         
     }
     

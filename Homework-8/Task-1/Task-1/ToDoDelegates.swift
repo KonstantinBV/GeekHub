@@ -5,13 +5,19 @@
 
 import Foundation
 
-protocol ToDoListDelegate {
+protocol ToDoMessageDelegate {
+    
+    func showMessage(title: String, text: String)
+    
+}
+
+protocol ToDoListDelegate: ToDoMessageDelegate {
     
     func saveItem(toDo: ToDo, isNew: Bool)
     
 }
 
-protocol ToDoCellDelegate {
+protocol ToDoCellDelegate: ToDoMessageDelegate  {
     
     func updateToDoOnDoneChanged(cell: ViewCellToDo)
     

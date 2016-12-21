@@ -46,6 +46,8 @@ class ViewCellToDo: UITableViewCell {
         if toDo != nil {
             toDo!.isDone = sender.on
             delegate?.updateToDoOnDoneChanged(self)
+        } else {
+            delegate?.showMessage("Error", text: "Can't switch task state. Task is nil!")
         }
     }
     
