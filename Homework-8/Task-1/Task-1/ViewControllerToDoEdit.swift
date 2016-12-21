@@ -10,7 +10,7 @@ import UIKit
 
 //MARK: ViewControllerToDoEdit - extension
 
-extension ViewControllerToDoEdit {
+extension ViewControllerToDoEdit: UITextFieldDelegate {
     
     //MARK: Virtual Functions
     
@@ -56,17 +56,14 @@ extension ViewControllerToDoEdit {
         toDo!.text = toDoText
         toDo!.isDone = doneSwitcher.on
         
-        if isNewItem {
-            delegate?.addItem(toDo!)
-        }
-        
+        delegate?.saveItem(toDo!, isNew: isNewItem)
     }
     
 }
 
 //MARK: ViewControllerToDoEdit - class
 
-class ViewControllerToDoEdit: UIViewController, UITextFieldDelegate {
+class ViewControllerToDoEdit: UIViewController {
 
     //MARK: Properties
     

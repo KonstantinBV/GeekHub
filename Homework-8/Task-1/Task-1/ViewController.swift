@@ -10,7 +10,7 @@ import UIKit
 
 //MARK: ViewController - extension
 
-extension ViewController {
+extension ViewController: UITableViewDataSource, UITableViewDelegate, ToDoListDelegate, ToDoCellDelegate {
     
     //MARK: Virtual Functions
     
@@ -20,10 +20,7 @@ extension ViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        if let helper = (UIApplication.sharedApplication().delegate as! AppDelegate).toDoHelper {
-            toDoHelper = helper
-        }
-        toDoHelper.loadData()
+        ToDoHelper.instanse.loadData()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -34,27 +31,27 @@ extension ViewController {
     
     override func viewWillDisappear(animated: Bool) {
         
-        toDoHelper.saveData()
-        
+        ToDoHelper.instanse.saveData()        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ViewCellToDo", forIndexPath: indexPath) as! ViewCellToDo
-        cell.toDo = toDoHelper.getToDoList()[indexPath.row]
+        cell.toDo = ToDoHelper.instanse.getToDoList()[indexPath.row]
+        cell.delegate = self
         return cell
         
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return toDoHelper.getToDoList().count
+        return ToDoHelper.instanse.getToDoList().count
         
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        openEditView(toDoHelper.getToDoList()[indexPath.row])
+        openEditView(ToDoHelper.instanse.getToDoList()[indexPath.row])
         
     }
     
@@ -63,8 +60,9 @@ extension ViewController {
         let deleteAction = UITableViewRowAction(style: .Default, title: "Delete") {
             (action: UITableViewRowAction, indexPath: NSIndexPath!) -> Void in
             
-            self.toDoHelper.remove(indexPath.row)
+            ToDoHelper.instanse.remove(indexPath.row)
             self.tableView.reloadData()
+            
         }
         
         deleteAction.backgroundColor = UIColor.grayColor()
@@ -72,11 +70,29 @@ extension ViewController {
         return [deleteAction]
     }
     
-    func addItem(toDo: ToDo) {
+    func saveItem(toDo: ToDo, isNew: Bool) {
         
-        toDoHelper.add(toDo)
+        guard let indexPath = tableView.indexPathForSelectedRow else {
+            //user allert
+            return
+        }
+        if isNew {
+            ToDoHelper.instanse.add(toDo)
+        } else {
+            ToDoHelper.instanse.updateAtIndex(indexPath.row, toDo: toDo)
+        }
         tableView.reloadData()
         
+    }
+    
+    func updateToDoOnDoneChanged(cell: ViewCellToDo) {
+        
+        guard let indexPath = tableView.indexPathForSelectedRow else {
+            //user allert
+            return
+        }
+        ToDoHelper.instanse.updateAtIndex(indexPath.row, toDo: cell.toDo!)
+        tableView.reloadData()
     }
     
     //MARK: Additional Functions
@@ -96,12 +112,12 @@ extension ViewController {
         
         let sortByABCAction = UIAlertAction(title: "Sort by ABC", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.toDoHelper.sort(SortingType.byText, withMain: true)
+            ToDoHelper.instanse.sort(SortingType.byText, withMain: true)
             self.tableView.reloadData()
         })
         let sortByDateAction = UIAlertAction(title: "Sort by date", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.toDoHelper.sort(SortingType.byDate, withMain: true)
+            ToDoHelper.instanse.sort(SortingType.byDate, withMain: true)
             self.tableView.reloadData()
         })
         
@@ -121,13 +137,11 @@ extension ViewController {
 
 //MARK: ViewController - class
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ToDoListDelegate {
+class ViewController: UIViewController {
 
     //MARK: Properties
     
     @IBOutlet weak var tableView: UITableView!
-    
-    var toDoHelper = ToDoHelper()
     
     //MARK: Actions
     

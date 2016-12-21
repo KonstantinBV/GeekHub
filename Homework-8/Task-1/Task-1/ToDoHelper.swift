@@ -73,7 +73,7 @@ extension ToDoHelper {
                 guard let properties = arrayItem as? NSDictionary else {
                     continue
                 }
-                let toDo = ToDo()
+                var toDo = ToDo()
                 for property in properties {
                     if let key: String = String(property.key) {
                         if let value: String = String(property.value) {
@@ -167,9 +167,24 @@ extension ToDoHelper {
 
 class ToDoHelper {
     
+    
+    //MARK: Members
+    private static var toDoInstanse: ToDoHelper?
+    
     //MARK: Properties
     
     private var toDoList = [ToDo]()
+    
+    static var instanse: ToDoHelper {
+        
+        get {
+            
+            if toDoInstanse == nil {
+                toDoInstanse = ToDoHelper()
+            }
+            return toDoInstanse!
+        }
+    }
     
     //MARK: Base operations
     
@@ -181,6 +196,12 @@ class ToDoHelper {
     func remove(index: Int) {
         
         toDoList.removeAtIndex(index)
+        
+    }
+    
+    func updateAtIndex(index: Int, toDo: ToDo) {
+        
+        toDoList[index] = toDo
         
     }
     

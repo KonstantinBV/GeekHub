@@ -7,6 +7,12 @@ import Foundation
 
 protocol ToDoListDelegate {
     
-    func addItem(toDo: ToDo)
+    func saveItem(toDo: ToDo, isNew: Bool)
+    
+}
+
+protocol ToDoCellDelegate {
+    
+    func updateToDoOnDoneChanged(cell: ViewCellToDo)
     
 }

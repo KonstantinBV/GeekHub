@@ -23,6 +23,8 @@ class ViewCellToDo: UITableViewCell {
     
     @IBOutlet weak var toDoTextLabel: UILabel!
     
+    var delegate: ToDoCellDelegate?
+    
     var toDo: ToDo? {
         
         get {
@@ -43,6 +45,7 @@ class ViewCellToDo: UITableViewCell {
         
         if toDo != nil {
             toDo!.isDone = sender.on
+            delegate?.updateToDoOnDoneChanged(self)
         }
     }
     
