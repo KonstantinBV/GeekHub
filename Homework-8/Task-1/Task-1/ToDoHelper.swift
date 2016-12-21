@@ -210,9 +210,4 @@ class ToDoHelper {
         
     }
     
-    func getToDoCount() -> Int {
-        
-        return toDoList.count
-    }
-    
 }

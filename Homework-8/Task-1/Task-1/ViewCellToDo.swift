@@ -8,42 +8,42 @@
 
 import UIKit
 
-//MARK: ViewCellToDo - extension
-
-extension ViewCellToDo {
-    
-    //MARK: Additional Functions
-    
-    func setItem(toDo: ToDo) {
-        
-        self.toDo = toDo
-        toDoTextLabel.text = toDo.text
-        doneSwitcher.on = toDo.isDone
-    }
-    
-}
-
 //MARK: ViewCellToDo - class
 
 class ViewCellToDo: UITableViewCell {
 
-    //MARK: Properties
+    //MARK: Members
     
-    private var toDo: ToDo?
+    private var toDoInstance: ToDo?
+    
+    
+    //MARK: Properties
     
     @IBOutlet weak var doneSwitcher: UISwitch!
     
     @IBOutlet weak var toDoTextLabel: UILabel!
     
+    var toDo: ToDo? {
+        
+        get {
+            return toDoInstance
+        }
+        
+        set {
+            toDoInstance = newValue
+            toDoTextLabel.text = newValue?.text
+            doneSwitcher.on = (newValue?.isDone) ?? false
+        }
+        
+    }   
+    
     //MARK: Actions
     
     @IBAction func OnDoneSwitched(sender: UISwitch) {
         
-        if toDo == nil {
-            return
+        if toDo != nil {
+            toDo!.isDone = sender.on
         }
-        toDo!.isDone = sender.on 
-        
     }
     
 }

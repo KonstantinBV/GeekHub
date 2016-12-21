@@ -33,13 +33,15 @@ extension ViewController {
     }
     
     override func viewWillDisappear(animated: Bool) {
+        
         toDoHelper.saveData()
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ViewCellToDo", forIndexPath: indexPath) as! ViewCellToDo
-        cell.setItem(toDoHelper.getToDoList()[indexPath.row])
+        cell.toDo = toDoHelper.getToDoList()[indexPath.row]
         return cell
         
     }
