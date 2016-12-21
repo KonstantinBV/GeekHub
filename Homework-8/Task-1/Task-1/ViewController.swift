@@ -20,6 +20,9 @@ extension ViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        if let helper = (UIApplication.sharedApplication().delegate as! AppDelegate).toDoHelper {
+            toDoHelper = helper
+        }
         toDoHelper.loadData()
     }
     
@@ -27,6 +30,10 @@ extension ViewController {
         
         tableView.reloadData()
         
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        toDoHelper.saveData()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -43,7 +50,7 @@ extension ViewController {
         
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         openEditView(toDoHelper.getToDoList()[indexPath.row])
         
@@ -55,7 +62,6 @@ extension ViewController {
             (action: UITableViewRowAction, indexPath: NSIndexPath!) -> Void in
             
             self.toDoHelper.remove(indexPath.row)
-            self.toDoHelper.saveData()
             self.tableView.reloadData()
         }
         
@@ -115,34 +121,11 @@ extension ViewController {
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ToDoListDelegate {
 
-    //MARK: Members
-    
-    private var toDoHelperInstance: ToDoHelper?
-    
-    
     //MARK: Properties
     
     @IBOutlet weak var tableView: UITableView!
     
-    var toDoHelper: ToDoHelper {
-        
-        get {
-            
-            if toDoHelperInstance == nil {
-                
-                toDoHelperInstance = (UIApplication.sharedApplication().delegate as! AppDelegate).toDoHelper
-            }
-            
-            if toDoHelperInstance == nil {
-                
-                toDoHelperInstance = ToDoHelper()
-                
-            }
-            
-            return toDoHelperInstance!
-            
-        }
-    }
+    var toDoHelper = ToDoHelper()
     
     //MARK: Actions
     

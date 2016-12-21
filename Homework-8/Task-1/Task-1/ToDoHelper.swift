@@ -134,17 +134,22 @@ extension ToDoHelper {
     
     func saveData() {
         
-        guard let jsonData = convertToDoListToJSONData() else {
-            return
-        }
-        
-        guard let jsonFilePath = getJSONFilePath() else {
-            return
-        }
-        
-        let fileManager = NSFileManager.defaultManager()
-        if !fileManager.createFileAtPath(jsonFilePath, contents: jsonData, attributes: nil) {
-            print("Error while saving data.")
+        Utilities.doSomethingAssync { () -> () in
+            
+            guard let jsonData = self.convertToDoListToJSONData() else {
+                return
+            }
+            
+            guard let jsonFilePath = self.getJSONFilePath() else {
+                return
+            }
+            
+            let fileManager = NSFileManager.defaultManager()
+            if !fileManager.createFileAtPath(jsonFilePath, contents: jsonData, attributes: nil) {
+                
+                print("Error while saving data.")
+            }
+            
         }
         
     }
@@ -203,6 +208,11 @@ class ToDoHelper {
         
         return toDoList
         
+    }
+    
+    func getToDoCount() -> Int {
+        
+        return toDoList.count
     }
     
 }
