@@ -167,27 +167,20 @@ extension ToDoHelper {
 
 class ToDoHelper {
     
-    
-    //MARK: Members
-    
-    private static var toDoInstanse: ToDoHelper?
-    
     //MARK: Properties
     
     private var toDoList = [ToDo]()
     
     var delegate: ToDoMessageDelegate?
     
-    static var instanse: ToDoHelper {
+    static let instanse =  ToDoHelper()
+    
+    //MARK: Init Functions
+    
+    private init() {
         
-        get {
-            
-            if toDoInstanse == nil {
-                toDoInstanse = ToDoHelper()
-            }
-            return toDoInstanse!
-        }
     }
+    
     
     //MARK: Base operations
     
