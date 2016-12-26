@@ -14,35 +14,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, ToDoListDe
     
     //MARK: Virtual Functions
     
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        ToDoHelper.instanse.delegate = self
-        
-        activityAnimations.startAnimating()
-        
-        Utilities.doSomethingAssync { () -> () in
-            ToDoHelper.instanse.loadData()
-            self.activityAnimations.stopAnimating()
-            self.tableView.reloadData()
-        }
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        
-       self.tableView.reloadData()
-        
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        
-        ToDoHelper.instanse.saveData()        
-    }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ViewCellToDo", forIndexPath: indexPath) as! ViewCellToDo
@@ -165,8 +136,36 @@ class ViewController: UIViewController {
 
     //MARK: Properties
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityAnimations: UIActivityIndicatorView!
+    @IBOutlet weak var tableView: UITableView!   
+    
+    //MARK: Virtual Functions
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        ToDoHelper.instanse.delegate = self
+        
+        Utilities.doSomethingAssync { () -> () in
+            ToDoHelper.instanse.loadData()
+            self.tableView.reloadData()
+        }
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        tableView.reloadData()
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        
+        ToDoHelper.instanse.saveData()
+    }
+
     
     //MARK: Actions
     

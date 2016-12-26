@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B52F81101E069CCF0072F9E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F923BD1E01456000D3E13D /* ViewController.swift */; };
 		B53E6B631E091D770064219D /* ToDoData.json in Resources */ = {isa = PBXBuildFile; fileRef = B53E6B621E091D770064219D /* ToDoData.json */; };
+		B56ED43F1E1194020065B8F4 /* ToDoDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56ED43E1E1194020065B8F4 /* ToDoDataHelper.swift */; };
 		B58AF5431E082DF000CBAC7B /* ToDoDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58AF5421E082DF000CBAC7B /* ToDoDelegates.swift */; };
 		B5ADE2E81E0A6500007E265F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ADE2E71E0A6500007E265F /* Utilities.swift */; };
 		B5F923BC1E01456000D3E13D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F923BB1E01456000D3E13D /* AppDelegate.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		B53E6B621E091D770064219D /* ToDoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ToDoData.json; sourceTree = "<group>"; };
+		B56ED43E1E1194020065B8F4 /* ToDoDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoDataHelper.swift; sourceTree = "<group>"; };
 		B58AF5421E082DF000CBAC7B /* ToDoDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoDelegates.swift; sourceTree = "<group>"; };
 		B5ADE2E71E0A6500007E265F /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		B5F923B81E01456000D3E13D /* Task-1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task-1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,7 @@
 				B5F923D11E01645100D3E13D /* BaseTypeExtensions.swift */,
 				B5F923CD1E01499D00D3E13D /* ToDo.swift */,
 				B5F923CF1E014A8A00D3E13D /* ToDoHelper.swift */,
+				B56ED43E1E1194020065B8F4 /* ToDoDataHelper.swift */,
 				B58AF5421E082DF000CBAC7B /* ToDoDelegates.swift */,
 				B5F923BD1E01456000D3E13D /* ViewController.swift */,
 				B5F923D31E0185D000D3E13D /* ViewCellToDo.swift */,
@@ -167,6 +170,7 @@
 				B5F923D01E014A8A00D3E13D /* ToDoHelper.swift in Sources */,
 				B58AF5431E082DF000CBAC7B /* ToDoDelegates.swift in Sources */,
 				B5ADE2E81E0A6500007E265F /* Utilities.swift in Sources */,
+				B56ED43F1E1194020065B8F4 /* ToDoDataHelper.swift in Sources */,
 				B5F923BC1E01456000D3E13D /* AppDelegate.swift in Sources */,
 				B5F923D61E018D1900D3E13D /* ViewControllerToDoEdit.swift in Sources */,
 			);

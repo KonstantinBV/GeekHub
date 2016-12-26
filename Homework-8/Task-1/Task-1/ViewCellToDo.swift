@@ -23,6 +23,8 @@ class ViewCellToDo: UITableViewCell {
     
     @IBOutlet weak var toDoTextLabel: UILabel!
     
+    @IBOutlet weak var toDoDateLabel: UILabel!
+    
     var delegate: ToDoCellDelegate?
     
     var toDo: ToDo? {
@@ -34,6 +36,7 @@ class ViewCellToDo: UITableViewCell {
         set {
             toDoInstance = newValue
             toDoTextLabel.text = newValue?.text
+            toDoDateLabel.text = newValue?.date.dateTimeToString()
             doneSwitcher.on = (newValue?.isDone) ?? false
         }
         

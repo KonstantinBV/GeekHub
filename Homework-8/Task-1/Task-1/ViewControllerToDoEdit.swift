@@ -26,10 +26,11 @@ extension ViewControllerToDoEdit: UITextFieldDelegate {
         isNewItem = toDo == nil
         
         if isNewItem {
-            doneSwitcher.hidden = true
+            editSettingsView.hidden = true
         } else {
             taskTextFiled.text = toDo!.text
             doneSwitcher.on = toDo!.isDone
+            toDoCreationDate.text = toDo!.date.dateTimeToString()
         }
     }
     
@@ -76,8 +77,11 @@ class ViewControllerToDoEdit: UIViewController {
     
     @IBOutlet weak var taskTextFiled: UITextField!
     
-    @IBOutlet weak var doneSwitcher: UISwitch!   
+    @IBOutlet weak var doneSwitcher: UISwitch!
     
+    @IBOutlet weak var editSettingsView: UIView!
+    
+    @IBOutlet weak var toDoCreationDate: UILabel!
     
     //MARK: Actions
     
