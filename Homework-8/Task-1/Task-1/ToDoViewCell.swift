@@ -8,9 +8,9 @@
 
 import UIKit
 
-//MARK: ViewCellToDo - class
+//MARK: ToDoViewCell - class
 
-class ViewCellToDo: UITableViewCell {
+class ToDoViewCell: UITableViewCell {
 
     //MARK: Members
     

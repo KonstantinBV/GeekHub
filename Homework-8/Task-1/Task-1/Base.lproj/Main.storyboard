@@ -7,10 +7,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--To Do View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Task_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ToDoViewController" customModule="Task_1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -43,7 +43,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ViewCellToDo" id="jek-Zq-vnR" customClass="ViewCellToDo" customModule="Task_1" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ToDoViewCell" id="jek-Zq-vnR" customClass="ToDoViewCell" customModule="Task_1" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jek-Zq-vnR" id="k0B-bP-0bD">
@@ -126,13 +126,19 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="N73-z1-hnQ">
+                    <rectEdge key="edges" left="YES"/>
+                    <connections>
+                        <action selector="edgePanGesture:" destination="BYZ-38-t0r" id="pCK-CA-qZH"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1175" y="469"/>
         </scene>
-        <!--View Controller To Do Edit-->
+        <!--To Do Edit View Controller-->
         <scene sceneID="KO5-qL-1cK">
             <objects>
-                <viewController storyboardIdentifier="ViewControllerToDoEdit" id="JMO-bi-eBq" customClass="ViewControllerToDoEdit" customModule="Task_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ToDoEditViewController" id="JMO-bi-eBq" customClass="ToDoEditViewController" customModule="Task_1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PDy-by-fSC"/>
                         <viewControllerLayoutGuide type="bottom" id="DcE-aR-75C"/>
@@ -244,6 +250,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOX-HU-W9M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1844" y="469"/>
+        </scene>
+        <!--Swipe Menu View Controller-->
+        <scene sceneID="jjh-4U-C1I">
+            <objects>
+                <viewController storyboardIdentifier="SwipeMenuViewController" id="xXn-w6-Qxh" customClass="SwipeMenuViewController" customModule="Task_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ztW-Yr-eRU"/>
+                        <viewControllerLayoutGuide type="bottom" id="hU8-oQ-zhs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DFG-IW-wdx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dS4-qZ-0im">
+                                <rect key="frame" x="40" y="130" width="520" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Show info"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNc-D6-2Gl">
+                                <rect key="frame" x="40" y="60" width="520" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Open ToDo list"/>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dS4-qZ-0im" firstAttribute="top" secondItem="KNc-D6-2Gl" secondAttribute="bottom" constant="40" id="3fa-fP-aDe"/>
+                            <constraint firstAttribute="trailing" secondItem="dS4-qZ-0im" secondAttribute="trailing" constant="40" id="dOy-jo-Om6"/>
+                            <constraint firstItem="dS4-qZ-0im" firstAttribute="leading" secondItem="DFG-IW-wdx" secondAttribute="leading" constant="40" id="h4W-4X-HeC"/>
+                            <constraint firstItem="KNc-D6-2Gl" firstAttribute="leading" secondItem="DFG-IW-wdx" secondAttribute="leading" constant="40" id="iym-d7-KNW"/>
+                            <constraint firstAttribute="trailing" secondItem="KNc-D6-2Gl" secondAttribute="trailing" constant="40" id="mzQ-0f-W3T"/>
+                            <constraint firstItem="KNc-D6-2Gl" firstAttribute="top" secondItem="ztW-Yr-eRU" secondAttribute="bottom" constant="40" id="s3n-Tc-gDg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ca1-Dk-bSU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2464" y="469"/>
         </scene>
     </scenes>
 </document>

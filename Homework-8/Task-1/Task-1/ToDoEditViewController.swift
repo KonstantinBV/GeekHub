@@ -8,9 +8,25 @@
 
 import UIKit
 
-//MARK: ViewControllerToDoEdit - extension
+//MARK: ToDoEditViewController - class
 
-extension ViewControllerToDoEdit: UITextFieldDelegate {
+class ToDoEditViewController: UIViewController {
+
+    //MARK: Properties
+    
+    var toDo: ToDo?
+    
+    var isNewItem = true
+    
+    var delegate: ToDoListDelegate?
+    
+    @IBOutlet weak var taskTextFiled: UITextField!
+    
+    @IBOutlet weak var doneSwitcher: UISwitch!
+    
+    @IBOutlet weak var editSettingsView: UIView!
+    
+    @IBOutlet weak var toDoCreationDate: UILabel!
     
     //MARK: Virtual Functions
     
@@ -34,10 +50,19 @@ extension ViewControllerToDoEdit: UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    //MARK: Actions
+    
+    @IBAction func onSavePressed(sender: UIBarButtonItem) {
         
-        textField.resignFirstResponder()
-        return true
+        if save() {
+             onBackPressed(nil)
+        }       
+        
+    }
+    
+    @IBAction func onBackPressed(sender: UIBarButtonItem?) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
         
     }
     
@@ -60,42 +85,18 @@ extension ViewControllerToDoEdit: UITextFieldDelegate {
         delegate?.saveItem(toDo!, isNew: isNewItem)
         return true
     }
-    
+
 }
 
-//MARK: ViewControllerToDoEdit - class
+//MARK: extension UITextFieldDelegate
 
-class ViewControllerToDoEdit: UIViewController {
-
-    //MARK: Properties
+extension ToDoEditViewController: UITextFieldDelegate {
     
-    var toDo: ToDo?
-    
-    var isNewItem = true
-    
-    var delegate: ToDoListDelegate?
-    
-    @IBOutlet weak var taskTextFiled: UITextField!
-    
-    @IBOutlet weak var doneSwitcher: UISwitch!
-    
-    @IBOutlet weak var editSettingsView: UIView!
-    
-    @IBOutlet weak var toDoCreationDate: UILabel!
-    
-    //MARK: Actions
-    
-    @IBAction func onSavePressed(sender: UIBarButtonItem) {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        if save() {
-             onBackPressed(nil)
-        }       
+        textField.resignFirstResponder()
+        return true
         
     }
     
-    @IBAction func onBackPressed(sender: UIBarButtonItem?) {
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
-        
-    }
 }

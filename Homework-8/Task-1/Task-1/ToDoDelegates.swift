@@ -19,6 +19,6 @@ protocol ToDoListDelegate: ToDoMessageDelegate {
 
 protocol ToDoCellDelegate: ToDoMessageDelegate  {
     
-    func updateToDoOnDoneChanged(cell: ViewCellToDo)
+    func updateToDoOnDoneChanged(cell: ToDoViewCell)
     
 }
