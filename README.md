@@ -1,2 +1,2 @@
 # GeekHub
-https://www.raywenderlich.com/78568/create-slide-out-navigation-panel-swift
+https://github.com/ThornTechPublic/InteractiveSlideOutMenu/blob/6dda1059901449bfc061fcf5a9702fccce01ca00/InteractiveSlideoutMenu/MainViewController.swift
