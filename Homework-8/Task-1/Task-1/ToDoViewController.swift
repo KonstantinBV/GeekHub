@@ -64,8 +64,14 @@ class ToDoViewController: UIViewController {
         
     }
     
-    //MARK: Additional Functions
-    
+}
+
+//MARK: ToDoViewController Extensions
+
+//MARK: extension Additional Functions
+
+extension ToDoViewController {
+
     func openEditView(toDo: ToDo?) {
         
         let viewControllerToDoEdit: ToDoEditViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ToDoEditViewController") as! ToDoEditViewController
@@ -89,7 +95,6 @@ class ToDoViewController: UIViewController {
             ToDoHelper.instanse.sort(SortingType.byDate, withMain: true)
             self.tableView.reloadData()
         })
-        
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
             (alert: UIAlertAction!) -> Void in
             actionManu.dismissViewControllerAnimated(true, completion: nil)
@@ -104,7 +109,6 @@ class ToDoViewController: UIViewController {
     
 }
 
-//MARK: ToDoViewController Extensions
 
 //MARK: extension ToDoListDelegate
 
@@ -201,7 +205,6 @@ extension ToDoViewController: ToDoCellDelegate {
         }
         
         ToDoHelper.instanse.updateAtIndex(indexPath.row, toDo: cell.toDo!)
-        tableView.reloadData()
-    }    
+    }
     
 }

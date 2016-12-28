@@ -99,13 +99,16 @@ class ToDoDataHelper {
     
     private func getJSONFilePath() -> String? {
         
-        return "/Users/Shared/\(JSONFile.jsonFileName)"
-        //return "/Users/konstantin/GeekHub/Homework-8/Task-1/Task-1/\(JSONFile.jsonFileName)"
-        /*guard let jsonFilePath = NSBundle.mainBundle().pathForResource(JSONFile.fileName, ofType: JSONFile.fileExtension) else {
-        delegate?.showMessage("Error", text: "File '\(JSONFile.jsonFileName)' doesn't exist.")
-        return nil
+        //return "/Users/Shared/\(JSONFile.jsonFileName)"
+        
+        guard let jsonFilePath = NSBundle.mainBundle().pathForResource(JSONFile.fileName, ofType: JSONFile.fileExtension) else {
+            
+            delegate?.showMessage("Error", text: "File '\(JSONFile.jsonFileName)' doesn't exist.")
+            return nil
+            
         }
-        return jsonFilePath*/
+        
+        return jsonFilePath
         
     }
     
