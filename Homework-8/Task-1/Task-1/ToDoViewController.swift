@@ -44,7 +44,6 @@ class ToDoViewController: UIViewController {
         
         ToDoHelper.instanse.saveData()
     }
-
     
     //MARK: Actions
     
@@ -59,12 +58,11 @@ class ToDoViewController: UIViewController {
         
     }
     
-    @IBAction func edgePanGesture(sender: UIScreenEdgePanGestureRecognizer) {
+    @IBAction func OnSwipeRight(sender: UISwipeGestureRecognizer) {
         
-        
+        performSegueWithIdentifier("SwipeMenuViewController", sender: nil)
         
     }
-    
     
     //MARK: Additional Functions
     

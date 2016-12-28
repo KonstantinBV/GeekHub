@@ -117,23 +117,26 @@
                             <constraint firstItem="2FJ-D1-UqA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kvd-vC-NDx"/>
                             <constraint firstItem="2FJ-D1-UqA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="orG-p9-Bdb"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="szY-FR-0xY" appends="YES" id="mDN-Zp-72V"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="qTs-RI-Ye2"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="88Z-tm-rNg" id="oIc-J4-cSD"/>
+                        <segue destination="xXn-w6-Qxh" kind="modal" identifier="SwipeMenuViewController" modalTransitionStyle="crossDissolve" id="00B-11-lZH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="N73-z1-hnQ">
-                    <rectEdge key="edges" left="YES"/>
+                <swipeGestureRecognizer direction="right" id="szY-FR-0xY">
                     <connections>
-                        <action selector="edgePanGesture:" destination="BYZ-38-t0r" id="pCK-CA-qZH"/>
+                        <action selector="OnSwipeRight:" destination="BYZ-38-t0r" id="cxT-K5-wY4"/>
                     </connections>
-                </screenEdgePanGestureRecognizer>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1175" y="469"/>
+            <point key="canvasLocation" x="1179" y="-5"/>
         </scene>
         <!--To Do Edit View Controller-->
         <scene sceneID="KO5-qL-1cK">
@@ -249,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOX-HU-W9M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="469"/>
+            <point key="canvasLocation" x="1179" y="660"/>
         </scene>
         <!--Swipe Menu View Controller-->
         <scene sceneID="jjh-4U-C1I">
@@ -263,15 +266,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dS4-qZ-0im">
-                                <rect key="frame" x="40" y="130" width="520" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Show info"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNc-D6-2Gl">
                                 <rect key="frame" x="40" y="60" width="520" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Open ToDo list"/>
+                                <connections>
+                                    <action selector="OnOpenToDoListPressed" destination="xXn-w6-Qxh" eventType="touchUpInside" id="rZ7-2u-yA5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dS4-qZ-0im">
+                                <rect key="frame" x="40" y="130" width="520" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Show info"/>
+                                <connections>
+                                    <action selector="OnShowInfoPressed" destination="xXn-w6-Qxh" eventType="touchUpInside" id="863-8j-8pP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -284,11 +293,67 @@
                             <constraint firstAttribute="trailing" secondItem="KNc-D6-2Gl" secondAttribute="trailing" constant="40" id="mzQ-0f-W3T"/>
                             <constraint firstItem="KNc-D6-2Gl" firstAttribute="top" secondItem="ztW-Yr-eRU" secondAttribute="bottom" constant="40" id="s3n-Tc-gDg"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="6RB-yW-Ffe" appends="YES" id="6Qw-pu-3q2"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <segue destination="Eeb-Mj-uar" kind="modal" identifier="ToDoCopyrightsViewController" modalTransitionStyle="crossDissolve" id="XON-UT-qaC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ca1-Dk-bSU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="6RB-yW-Ffe">
+                    <connections>
+                        <action selector="OnSwipeLeft:" destination="xXn-w6-Qxh" id="kHO-4W-bg3"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2464" y="469"/>
+            <point key="canvasLocation" x="1896" y="-5"/>
+        </scene>
+        <!--To Do Copyrights View Controller-->
+        <scene sceneID="lrS-Ga-my5">
+            <objects>
+                <viewController storyboardIdentifier="ToDoCopyrightsViewController" id="Eeb-Mj-uar" customClass="ToDoCopyrightsViewController" customModule="Task_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PVs-VG-XiF"/>
+                        <viewControllerLayoutGuide type="bottom" id="BSz-Lm-7Ip"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8um-Jg-xA8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Software copyright" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEy-da-5Sl">
+                                <rect key="frame" x="224" y="33" width="152" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="97J-uV-Wq2">
+                                <rect key="frame" x="20" y="71" width="560" height="162"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEK-pK-Yko">
+                                <rect key="frame" x="233" y="254" width="134" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="OnClosePressed" destination="Eeb-Mj-uar" eventType="touchUpInside" id="kjF-EY-KUX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bh9-9e-vPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1896" y="759"/>
         </scene>
     </scenes>
 </document>
