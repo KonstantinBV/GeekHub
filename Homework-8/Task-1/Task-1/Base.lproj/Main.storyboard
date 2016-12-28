@@ -126,7 +126,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="88Z-tm-rNg" id="oIc-J4-cSD"/>
-                        <segue destination="xXn-w6-Qxh" kind="modal" identifier="SwipeMenuViewController" modalTransitionStyle="crossDissolve" id="00B-11-lZH"/>
+                        <segue destination="xXn-w6-Qxh" kind="presentation" identifier="SwipeMenuViewController" modalTransitionStyle="crossDissolve" id="00B-11-lZH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -297,8 +297,9 @@
                             <outletCollection property="gestureRecognizers" destination="6RB-yW-Ffe" appends="YES" id="6Qw-pu-3q2"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="y1o-yO-y0Q"/>
                     <connections>
-                        <segue destination="Eeb-Mj-uar" kind="modal" identifier="ToDoCopyrightsViewController" modalTransitionStyle="crossDissolve" id="XON-UT-qaC"/>
+                        <segue destination="Eeb-Mj-uar" kind="presentation" identifier="ToDoCopyrightsViewController" modalTransitionStyle="crossDissolve" id="XON-UT-qaC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ca1-Dk-bSU" userLabel="First Responder" sceneMemberID="firstResponder"/>
