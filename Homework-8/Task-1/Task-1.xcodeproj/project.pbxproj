@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B52F81101E069CCF0072F9E4 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F923BD1E01456000D3E13D /* ToDoViewController.swift */; };
 		B53E6B631E091D770064219D /* ToDoData.json in Resources */ = {isa = PBXBuildFile; fileRef = B53E6B621E091D770064219D /* ToDoData.json */; };
-		B559E8931E131C83007A46DD /* SwipeMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B559E8921E131C83007A46DD /* SwipeMenuViewController.swift */; };
 		B56ED43F1E1194020065B8F4 /* ToDoDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56ED43E1E1194020065B8F4 /* ToDoDataHelper.swift */; };
 		B58AF5431E082DF000CBAC7B /* ToDoDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58AF5421E082DF000CBAC7B /* ToDoDelegates.swift */; };
 		B5ADE2E81E0A6500007E265F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ADE2E71E0A6500007E265F /* Utilities.swift */; };
@@ -27,7 +26,6 @@
 
 /* Begin PBXFileReference section */
 		B53E6B621E091D770064219D /* ToDoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ToDoData.json; sourceTree = "<group>"; };
-		B559E8921E131C83007A46DD /* SwipeMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeMenuViewController.swift; sourceTree = "<group>"; };
 		B56ED43E1E1194020065B8F4 /* ToDoDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoDataHelper.swift; sourceTree = "<group>"; };
 		B58AF5421E082DF000CBAC7B /* ToDoDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoDelegates.swift; sourceTree = "<group>"; };
 		B5ADE2E71E0A6500007E265F /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 				B5F923BD1E01456000D3E13D /* ToDoViewController.swift */,
 				B5F923D31E0185D000D3E13D /* ToDoViewCell.swift */,
 				B5F923D51E018D1900D3E13D /* ToDoEditViewController.swift */,
-				B559E8921E131C83007A46DD /* SwipeMenuViewController.swift */,
 				B5C060D91E1412F100EB2607 /* ToDoCopyrightsViewController.swift */,
 				B5ADE2E71E0A6500007E265F /* Utilities.swift */,
 				B5F923BF1E01456000D3E13D /* Main.storyboard */,
@@ -174,7 +171,6 @@
 				B5F923D41E0185D000D3E13D /* ToDoViewCell.swift in Sources */,
 				B5F923CE1E01499D00D3E13D /* ToDo.swift in Sources */,
 				B5F923D01E014A8A00D3E13D /* ToDoHelper.swift in Sources */,
-				B559E8931E131C83007A46DD /* SwipeMenuViewController.swift in Sources */,
 				B5C060DA1E1412F100EB2607 /* ToDoCopyrightsViewController.swift in Sources */,
 				B58AF5431E082DF000CBAC7B /* ToDoDelegates.swift in Sources */,
 				B5ADE2E81E0A6500007E265F /* Utilities.swift in Sources */,

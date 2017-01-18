@@ -11,11 +11,17 @@ import UIKit
 
 //MARK: ToDoViewController - class
 
-class ToDoViewController: UIViewController {
+class ToDoViewController: UIViewController/*, UIGestureRecognizerDelegate*/ {
 
     //MARK: Properties
     
     @IBOutlet weak var tableView: UITableView!   
+    
+    @IBOutlet var maineView: UIView!
+    
+    @IBOutlet weak var menuView: UIView!
+    
+    @IBOutlet weak var menuViewLeading: NSLayoutConstraint!
     
     //MARK: Virtual Functions
     
@@ -31,6 +37,12 @@ class ToDoViewController: UIViewController {
             ToDoHelper.instanse.loadData()
             self.tableView.reloadData()
         }
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: ("handlePanGesture"))
+        //panGesture.delegate = self
+        
+        maineView.addGestureRecognizer(panGesture)
+        menuViewLeading.constant = menuViewLeading.constant - menuView.frame.width
         
     }
     
@@ -58,10 +70,28 @@ class ToDoViewController: UIViewController {
         
     }
     
-    @IBAction func OnSwipeRight(sender: UISwipeGestureRecognizer) {
+    //MARK: Private Functions
+    
+    private func handlePanGesture(recognizer: UIPanGestureRecognizer) {
         
-        performSegueWithIdentifier("SwipeMenuViewController", sender: nil)
+        let velocity = recognizer.velocityInView(self.view)
+        let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
+        let slideMultiplier = magnitude / 200
         
+        switch recognizer.state {
+            
+            case .Began:
+                print(slideMultiplier)
+                break
+            case .Changed:
+                print(slideMultiplier)
+                break
+            case .Ended:
+                print(slideMultiplier)
+                break
+            default:
+            break
+        }
     }
     
 }
