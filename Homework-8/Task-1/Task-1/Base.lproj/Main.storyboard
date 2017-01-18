@@ -105,11 +105,37 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVo-Dl-8EF">
-                                <rect key="frame" x="0.0" y="0.0" width="502" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="381" height="600"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9aK-4o-op2">
+                                        <rect key="frame" x="133" y="270" width="115" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twl-zS-HEd">
+                                                <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
+                                                <animations/>
+                                                <state key="normal" title="Show copyrights"/>
+                                                <connections>
+                                                    <action selector="onShowCopyrightsPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZfI-Tr-XKI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtD-KZ-OXA">
+                                                <rect key="frame" x="0.0" y="30" width="115" height="30"/>
+                                                <animations/>
+                                                <state key="normal" title="Close"/>
+                                                <connections>
+                                                    <action selector="onCloseMenuPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mfr-XC-PcU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.94601018280000004" green="1" blue="0.58739062090000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="502" id="ad2-tf-tHj"/>
+                                    <constraint firstAttribute="width" constant="381" id="8TJ-OS-PZA"/>
+                                    <constraint firstItem="9aK-4o-op2" firstAttribute="centerX" secondItem="RVo-Dl-8EF" secondAttribute="centerX" id="KYG-iG-Uao"/>
+                                    <constraint firstItem="9aK-4o-op2" firstAttribute="centerY" secondItem="RVo-Dl-8EF" secondAttribute="centerY" id="bTi-gg-sQ8"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -117,16 +143,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2FJ-D1-UqA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3oH-LX-eti"/>
+                            <constraint firstItem="RVo-Dl-8EF" firstAttribute="leading" secondItem="88Z-tm-rNg" secondAttribute="leading" id="CGz-e1-l1D"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RVo-Dl-8EF" secondAttribute="bottom" id="EoW-sP-MGi"/>
                             <constraint firstItem="88Z-tm-rNg" firstAttribute="top" secondItem="2FJ-D1-UqA" secondAttribute="bottom" id="HMB-zT-hB3"/>
                             <constraint firstAttribute="trailing" secondItem="88Z-tm-rNg" secondAttribute="trailing" id="NMF-cb-BeL"/>
                             <constraint firstAttribute="trailing" secondItem="2FJ-D1-UqA" secondAttribute="trailing" id="OnY-us-rQ5"/>
-                            <constraint firstItem="RVo-Dl-8EF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cIY-8u-Pb8"/>
                             <constraint firstItem="88Z-tm-rNg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dCK-fy-Onm"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="88Z-tm-rNg" secondAttribute="bottom" id="gaJ-n5-ctq"/>
                             <constraint firstItem="2FJ-D1-UqA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kvd-vC-NDx"/>
                             <constraint firstItem="2FJ-D1-UqA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="orG-p9-Bdb"/>
-                            <constraint firstItem="RVo-Dl-8EF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="pqg-HM-Rzv"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RVo-Dl-8EF" secondAttribute="bottom" id="z8X-Ez-pIV"/>
+                            <constraint firstItem="RVo-Dl-8EF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xVe-NG-oA7"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -135,7 +161,7 @@
                     <connections>
                         <outlet property="maineView" destination="8bC-Xf-vdC" id="b2Y-mZ-KeJ"/>
                         <outlet property="menuView" destination="RVo-Dl-8EF" id="MBI-ST-lpV"/>
-                        <outlet property="menuViewLeading" destination="cIY-8u-Pb8" id="Ygp-cb-1ws"/>
+                        <outlet property="menuViewLeading" destination="CGz-e1-l1D" id="fn5-3h-YQ4"/>
                         <outlet property="tableView" destination="88Z-tm-rNg" id="oIc-J4-cSD"/>
                     </connections>
                 </viewController>

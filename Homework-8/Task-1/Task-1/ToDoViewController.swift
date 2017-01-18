@@ -11,7 +11,7 @@ import UIKit
 
 //MARK: ToDoViewController - class
 
-class ToDoViewController: UIViewController/*, UIGestureRecognizerDelegate*/ {
+class ToDoViewController: UIViewController {
 
     //MARK: Properties
     
@@ -38,11 +38,9 @@ class ToDoViewController: UIViewController/*, UIGestureRecognizerDelegate*/ {
             self.tableView.reloadData()
         }
         
-        let panGesture = UIPanGestureRecognizer(target: self, action: ("handlePanGesture"))
-        //panGesture.delegate = self
-        
+        let panGesture = UIPanGestureRecognizer(target: self, action: ("handlePanGesture:"))
         maineView.addGestureRecognizer(panGesture)
-        menuViewLeading.constant = menuViewLeading.constant - menuView.frame.width
+        hideMenuView()
         
     }
     
@@ -70,28 +68,58 @@ class ToDoViewController: UIViewController/*, UIGestureRecognizerDelegate*/ {
         
     }
     
-    //MARK: Private Functions
-    
-    private func handlePanGesture(recognizer: UIPanGestureRecognizer) {
+    @IBAction func handlePanGesture(recognizer: UIPanGestureRecognizer) {
         
         let velocity = recognizer.velocityInView(self.view)
-        let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
-        let slideMultiplier = magnitude / 200
+        let movementValue = velocity.x / 50
         
         switch recognizer.state {
+        case .Changed:
+            let newValue = menuViewLeading.constant + movementValue
+            if movementValue > 0 && newValue <= 0 {
+                menuViewLeading.constant = newValue
+            } else if movementValue < 0 && menuView.frame.width + menuViewLeading.constant > 0  {
+                menuViewLeading.constant = newValue
+            }
+            break
+        case .Ended:
+            if menuViewLeading.constant == 0 {
+                break
+            }
+            let menuMiddleWidth = menuView.frame.width / 2
+            let currentLeadingValue = menuViewLeading.constant * -1
+            if currentLeadingValue < menuMiddleWidth {
+                menuViewLeading.constant = 0
+            } else if currentLeadingValue > menuMiddleWidth {
+                hideMenuView()
+            }
             
-            case .Began:
-                print(slideMultiplier)
-                break
-            case .Changed:
-                print(slideMultiplier)
-                break
-            case .Ended:
-                print(slideMultiplier)
-                break
-            default:
+            break
+        default:
             break
         }
+        
+    }
+    @IBAction func onCloseMenuPressed() {
+        
+        hideMenuView()
+        
+    }
+    
+    @IBAction func onShowCopyrightsPressed() {
+        
+        let viewControllerCopyrights = self.storyboard?.instantiateViewControllerWithIdentifier("ToDoCopyrightsViewController") as! ToDoCopyrightsViewController
+       
+        self.presentViewController(viewControllerCopyrights, animated: true, completion: nil)
+        
+    }
+    
+    //MARK: Private Functions
+    
+    private func hideMenuView() {
+        
+        menuViewLeading.constant = -menuView.frame.width
+        
     }
     
 }
@@ -104,7 +132,7 @@ extension ToDoViewController {
 
     func openEditView(toDo: ToDo?) {
         
-        let viewControllerToDoEdit: ToDoEditViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ToDoEditViewController") as! ToDoEditViewController
+        let viewControllerToDoEdit = self.storyboard?.instantiateViewControllerWithIdentifier("ToDoEditViewController") as! ToDoEditViewController
         viewControllerToDoEdit.toDo = toDo
         viewControllerToDoEdit.delegate = self
         self.presentViewController(viewControllerToDoEdit, animated: true, completion: nil)
