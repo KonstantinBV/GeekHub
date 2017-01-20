@@ -19,9 +19,11 @@ class ToDoViewController: UIViewController {
     
     @IBOutlet var maineView: UIView!
     
-    @IBOutlet weak var menuView: UIView!
-    
     @IBOutlet weak var menuViewLeading: NSLayoutConstraint!
+    
+    @IBOutlet weak var menuViewWidthConstr: NSLayoutConstraint!
+    
+    private let menuWidthPercentage: CGFloat = 80
     
     //MARK: Virtual Functions
     
@@ -40,6 +42,7 @@ class ToDoViewController: UIViewController {
         
         let panGesture = UIPanGestureRecognizer(target: self, action: ("handlePanGesture:"))
         maineView.addGestureRecognizer(panGesture)
+        menuViewWidthConstr.constant = maineView.frame.width * menuWidthPercentage / 100
         hideMenuView()
         
     }
@@ -78,7 +81,7 @@ class ToDoViewController: UIViewController {
             let newValue = menuViewLeading.constant + movementValue
             if movementValue > 0 && newValue <= 0 {
                 menuViewLeading.constant = newValue
-            } else if movementValue < 0 && menuView.frame.width + menuViewLeading.constant > 0  {
+            } else if movementValue < 0 && menuViewWidthConstr.constant + menuViewLeading.constant > 0  {
                 menuViewLeading.constant = newValue
             }
             break
@@ -86,7 +89,7 @@ class ToDoViewController: UIViewController {
             if menuViewLeading.constant == 0 {
                 break
             }
-            let menuMiddleWidth = menuView.frame.width / 2
+            let menuMiddleWidth = menuViewWidthConstr.constant / 2
             let currentLeadingValue = menuViewLeading.constant * -1
             if currentLeadingValue < menuMiddleWidth {
                 menuViewLeading.constant = 0
@@ -118,7 +121,7 @@ class ToDoViewController: UIViewController {
     
     private func hideMenuView() {
         
-        menuViewLeading.constant = -menuView.frame.width
+        menuViewLeading.constant = -menuViewWidthConstr.constant
         
     }
     
