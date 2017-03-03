@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F38CD0903224414D06B016C0F4119D0928F95BD8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F38CD0903224414D06B016C0F4119D0928F95BD8" : 9223372036854775807,
+    "72B1BF46391E04742C08B2B894C3F1698BFF4F7F" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "180DF8E6-5EB9-4E48-A1F4-FC90171938FF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F38CD0903224414D06B016C0F4119D0928F95BD8" : "FirebaseJokesStarter\/",
+    "72B1BF46391E04742C08B2B894C3F1698BFF4F7F" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FirebaseJokes",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "FirebaseJokes.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/KonstantinBV\/GeekHub.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "72B1BF46391E04742C08B2B894C3F1698BFF4F7F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/12thtone\/FirebaseJokesStarter.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F38CD0903224414D06B016C0F4119D0928F95BD8"
+    }
+  ]
+}
