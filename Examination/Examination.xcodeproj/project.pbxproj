@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B52E4E121EA3CE8600F6ED11 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E4E111EA3CE8600F6ED11 /* Extensions.swift */; };
 		B5367D001EA2EF1A006F09AA /* BarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5367CFF1EA2EF1A006F09AA /* BarViewModel.swift */; };
 		B56C1BE61EA2777E00B670D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C1BE51EA2777E00B670D4 /* AppDelegate.swift */; };
 		B56C1BE81EA2777E00B670D4 /* BarGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C1BE71EA2777E00B670D4 /* BarGraphViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B52E4E111EA3CE8600F6ED11 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B5367CFF1EA2EF1A006F09AA /* BarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarViewModel.swift; sourceTree = "<group>"; };
 		B56C1BE21EA2777E00B670D4 /* Examination.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Examination.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56C1BE51EA2777E00B670D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		B56C1BE41EA2777E00B670D4 /* Examination */ = {
 			isa = PBXGroup;
 			children = (
+				B52E4E111EA3CE8600F6ED11 /* Extensions.swift */,
 				B56C1BE51EA2777E00B670D4 /* AppDelegate.swift */,
 				B56C1BE71EA2777E00B670D4 /* BarGraphViewController.swift */,
 				B56C1BE91EA2777E00B670D4 /* Main.storyboard */,
@@ -142,6 +145,7 @@
 				B56C1BE81EA2777E00B670D4 /* BarGraphViewController.swift in Sources */,
 				B56C1BE61EA2777E00B670D4 /* AppDelegate.swift in Sources */,
 				B5367D001EA2EF1A006F09AA /* BarViewModel.swift in Sources */,
+				B52E4E121EA3CE8600F6ED11 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

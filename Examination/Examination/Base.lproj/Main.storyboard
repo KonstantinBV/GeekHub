@@ -116,49 +116,49 @@
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button hidden="YES" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2S2-pi-mJw">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2S2-pi-mJw">
                                                         <rect key="frame" x="44" y="-187" width="86" height="250"/>
                                                         <color key="backgroundColor" red="1" green="0.61313105339999996" blue="0.22493331890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <action selector="onBarClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UX2-0W-8BZ"/>
                                                         </connections>
                                                     </button>
-                                                    <button hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHj-sj-ztW">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHj-sj-ztW">
                                                         <rect key="frame" x="140" y="-187" width="86" height="250"/>
                                                         <color key="backgroundColor" red="1" green="0.61313105339999996" blue="0.22493331890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <action selector="onBarClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HLK-4J-6IW"/>
                                                         </connections>
                                                     </button>
-                                                    <button hidden="YES" opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njd-Iy-ob0">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njd-Iy-ob0">
                                                         <rect key="frame" x="235.99999999999997" y="-187" width="86.333333333333286" height="250"/>
                                                         <color key="backgroundColor" red="1" green="0.61313105339999996" blue="0.22493331890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <action selector="onBarClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9kn-b4-n0Q"/>
                                                         </connections>
                                                     </button>
-                                                    <button hidden="YES" opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olJ-DA-jEa">
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olJ-DA-jEa">
                                                         <rect key="frame" x="332.33333333333331" y="-187" width="85.333333333333371" height="250"/>
                                                         <color key="backgroundColor" red="1" green="0.61313105339999996" blue="0.22493331890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <action selector="onBarClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wg8-4L-QMU"/>
                                                         </connections>
                                                     </button>
-                                                    <button hidden="YES" opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jN-M1-DdD">
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jN-M1-DdD">
                                                         <rect key="frame" x="427.66666666666674" y="-187" width="86.333333333333258" height="250"/>
                                                         <color key="backgroundColor" red="1" green="0.61313105339999996" blue="0.22493331890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <action selector="onBarClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EDe-Zi-HZ3"/>
                                                         </connections>
                                                     </button>
-                                                    <button hidden="YES" opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiM-Ue-883">
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiM-Ue-883">
                                                         <rect key="frame" x="524" y="-187" width="86" height="250"/>
                                                         <color key="backgroundColor" red="1" green="0.61313105339999996" blue="0.22493331890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <action selector="onBarClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A9K-Tc-DXX"/>
                                                         </connections>
                                                     </button>
-                                                    <button hidden="YES" opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UrQ-dq-uY3">
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UrQ-dq-uY3">
                                                         <rect key="frame" x="620" y="-187" width="86" height="250"/>
                                                         <color key="backgroundColor" red="1" green="0.61313105339999996" blue="0.22493331890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>

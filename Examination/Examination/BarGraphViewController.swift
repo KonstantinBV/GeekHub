@@ -13,6 +13,7 @@ class BarGraphViewController: UIViewController {
     //MARK: Properties
     
     var scaleViews = [UIView]()
+    var barConstraints = [NSLayoutConstraint]()
     let oneScaleDisplayHeight = 10
     
     //MARK: Outlets
@@ -46,14 +47,23 @@ class BarGraphViewController: UIViewController {
         scaleViews.append(scaleView30)
         scaleViews.append(scaleView40)
         
+        barConstraints.append(barMonConstraint)
+        barConstraints.append(barTuesConstraint)
+        barConstraints.append(barWedConstraint)
+        barConstraints.append(barThuConstraint)
+        barConstraints.append(barFriConstraint)
+        barConstraints.append(barSatConstraint)
+        barConstraints.append(barSunConstraint)
+        
         reinitViewsBorders()
+        hideBars()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        initConstraints()
+        reinitBars()
         
     }
     
@@ -94,54 +104,64 @@ class BarGraphViewController: UIViewController {
 //MARK: Extension - work with bar height
 extension BarGraphViewController {
     
-    func initConstraints() {
+    func hideBars() {
+        
+        for barConstraint in self.barConstraints {
+            
+            let validID = barConstraint.identifier?.getID()
+            if validID == nil || !validID!.isValidID() {
+                print("Error. Invalid ID.")
+                continue
+            }
+            
+            let barButton = findViewByID(scaleView0.subviews, validID!, UIButton.self)
+            barConstraint.constant = (barButton?.frame.height)!
+            
+        }
+        
+    }
+    
+    func reinitBars() {
         
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
             
-            self.initConstraint(self.barMonConstraint)
-            self.initConstraint(self.barTuesConstraint)
-            self.initConstraint(self.barWedConstraint)
-            self.initConstraint(self.barThuConstraint)
-            self.initConstraint(self.barFriConstraint)
-            self.initConstraint(self.barSatConstraint)
-            self.initConstraint(self.barSunConstraint)
+            for barConstraint in self.barConstraints {
+                
+                self.reinitBar(barConstraint)
+                
+            }
             self.view.layoutIfNeeded()
 
         })
         
     }
     
-    private func initConstraint(_ constraint: NSLayoutConstraint) {
+    private func reinitBar(_ constraint: NSLayoutConstraint) {
         
-        guard let validIDstring = constraint.identifier else {
-            print("Error! Constraint doesn't have valid identifier.")
+        let validID = constraint.identifier?.getID()
+        if validID == nil || !validID!.isValidID() {
+            print("Error. Invalid ID.")
             return
         }
         
-        guard let validID = Int(validIDstring) else {
-            print("Error! Constraint doesn't have valid identifier.")
-            return
-        }
-        
-        let barButton: UIButton? = findViewByID(scaleView0.subviews, validID, UIButton.self)
-        let barToolTip: UILabel? = findViewByID(scaleView0.subviews, validID, UILabel.self)
+        let barButton: UIButton? = findViewByID(scaleView0.subviews, validID!, UIButton.self)
+        let barToolTip: UILabel? = findViewByID(scaleView0.subviews, validID!, UILabel.self)
         
         if barButton != nil && barToolTip != nil {
             
             let validScaleCount = scaleViews.count - 1
-            let maxHeight = barButton!.frame.height
-            let oneScaleHeight = maxHeight / CGFloat(validScaleCount)
+            let oneScaleHeight = scaleView0.frame.height
+            let maxHeight = oneScaleHeight * CGFloat(validScaleCount)
            
             let randomValue = CGFloat(arc4random_uniform(UInt32(maxHeight)))
-            barButton!.isHidden = false
+            let toolTipValue = UInt32(oneScaleDisplayHeight*validScaleCount)
+                - UInt32((randomValue/oneScaleHeight)*CGFloat(oneScaleDisplayHeight))
             constraint.constant = randomValue
-            let toolTipValue = UInt32(oneScaleDisplayHeight*validScaleCount) - UInt32((randomValue/oneScaleHeight)*CGFloat(oneScaleDisplayHeight))
             barToolTip!.text = "\(toolTipValue)"
         }
     }
     
 }
-
 
 //MARK: Extension - work with view borders
 extension BarGraphViewController {
